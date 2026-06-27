@@ -1,6 +1,9 @@
-# QQ空间 · 葬爱千禧纪念馆
+# Y2K千禧年纪念馆
 
 一个千禧年代、QQ空间、非主流与早期中文互联网文化主题的单页网站。
+
+GitHub Pages 网站：
+https://wttzzz.github.io/y2k-millennium-report/
 
 ## 本地打开
 
