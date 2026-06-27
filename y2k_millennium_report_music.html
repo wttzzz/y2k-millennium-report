@@ -76,7 +76,96 @@
     @keyframes marqueeX{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
     @keyframes tilt{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(4deg)}}
+    @keyframes ledRunX{0%{background-position:0 0,0 0,0 0}100%{background-position:112px 0,-168px 0,0 0}}
+    @keyframes ledRunY{0%{background-position:0 0,0 0,0 0}100%{background-position:0 112px,0 -168px,0 0}}
+    @keyframes ledBreath{0%,100%{filter:saturate(1.1) brightness(.92); opacity:.86}50%{filter:saturate(1.8) brightness(1.35); opacity:1}}
+    @keyframes lensSweep{0%{transform:translateX(-120vw); opacity:0}12%,72%{opacity:.95}100%{transform:translateX(120vw); opacity:0}}
+    @keyframes cornerBlink{0%,100%{transform:scale(.86); opacity:.65}24%{transform:scale(1.18); opacity:1}46%{transform:scale(.98); opacity:.82}68%{transform:scale(1.08); opacity:1}}
     .blink{animation:blink 1.2s step-end infinite}
+    .millennium-lights{
+      position:fixed;
+      inset:0;
+      z-index:1180;
+      pointer-events:none;
+      opacity:0;
+      transition:opacity .28s ease;
+      mix-blend-mode:screen;
+    }
+    body.music-lit .millennium-lights{opacity:1}
+    .led-rail{
+      position:absolute;
+      overflow:hidden;
+      border-radius:999px;
+      opacity:.96;
+      background-repeat:repeat;
+      filter:saturate(1.25) brightness(1.1);
+      animation:ledBreath 1.2s steps(2,end) infinite;
+    }
+    .led-rail::after{
+      content:"";
+      position:absolute;
+      inset:-20px;
+      background:inherit;
+      filter:blur(16px);
+      opacity:.72;
+    }
+    .led-top,.led-bottom{
+      left:10px;
+      right:10px;
+      height:18px;
+      background-image:
+        radial-gradient(circle, #ffffff 0 4px, #70f0ff 5px 8px, transparent 9px),
+        radial-gradient(circle, #fff17f 0 3px, #ff325e 4px 8px, transparent 9px),
+        linear-gradient(90deg, transparent, rgba(112,240,255,.45), transparent);
+      background-size:56px 18px,84px 18px,100% 100%;
+      box-shadow:0 0 16px #70f0ff, 0 0 34px rgba(112,240,255,.74), inset 0 0 18px rgba(255,255,255,.46);
+      animation:ledRunX .78s linear infinite, ledBreath 1.06s steps(2,end) infinite;
+    }
+    .led-top{top:8px}
+    .led-bottom{bottom:8px; animation-direction:reverse, normal}
+    .led-left,.led-right{
+      top:10px;
+      bottom:10px;
+      width:18px;
+      background-image:
+        radial-gradient(circle, #ffffff 0 4px, #00ff8a 5px 8px, transparent 9px),
+        radial-gradient(circle, #fff17f 0 3px, #ff2b49 4px 8px, transparent 9px),
+        linear-gradient(180deg, transparent, rgba(255,88,199,.34), transparent);
+      background-size:18px 56px,18px 84px,100% 100%;
+      box-shadow:0 0 16px #00ff8a, 0 0 34px rgba(0,255,138,.66), inset 0 0 18px rgba(255,255,255,.46);
+      animation:ledRunY .74s linear infinite, ledBreath 1.18s steps(2,end) infinite;
+    }
+    .led-left{left:8px; animation-direction:reverse, normal}
+    .led-right{right:8px}
+    .led-corner{
+      position:absolute;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:radial-gradient(circle, #fff 0 7px, #70f0ff 8px 13px, #ff58c7 14px 19px, transparent 20px);
+      box-shadow:0 0 18px #fff,0 0 38px #70f0ff,0 0 58px rgba(255,88,199,.74);
+      animation:cornerBlink .92s steps(2,end) infinite;
+    }
+    .led-corner:nth-of-type(5){top:0;left:0}
+    .led-corner:nth-of-type(6){top:0;right:0; animation-delay:.22s}
+    .led-corner:nth-of-type(7){bottom:0;left:0; animation-delay:.48s}
+    .led-corner:nth-of-type(8){bottom:0;right:0; animation-delay:.66s}
+    .led-lens{
+      position:absolute;
+      left:0;
+      width:52vw;
+      height:3px;
+      background:linear-gradient(90deg, transparent, rgba(112,240,255,.98), #fff, rgba(44,116,255,.95), transparent);
+      box-shadow:0 0 16px rgba(112,240,255,.92), 0 0 40px rgba(44,116,255,.72);
+      opacity:0;
+      animation:lensSweep 2.45s linear infinite;
+    }
+    .led-lens.one{top:22%}
+    .led-lens.two{top:58%; animation-delay:.74s}
+    .led-lens.three{top:82%; animation-delay:1.36s; background:linear-gradient(90deg, transparent, rgba(0,255,138,.98), #fff17f, rgba(255,36,68,.88), transparent)}
+    @media (prefers-reduced-motion:reduce){
+      .led-rail,.led-corner,.led-lens{animation:none}
+    }
     .sparkles, .sparkles:before, .sparkles:after{
       position:absolute; content:"✦"; color:#fff; font-size:18px; text-shadow:0 0 8px var(--cyan),0 0 14px var(--hot);
       animation:twinkle 2.3s infinite ease-in-out;
@@ -406,6 +495,19 @@
 </head>
 <body>
   <a id="top"></a>
+  <div class="millennium-lights" id="millenniumLights" aria-hidden="true">
+    <i class="led-rail led-top"></i>
+    <i class="led-rail led-right"></i>
+    <i class="led-rail led-bottom"></i>
+    <i class="led-rail led-left"></i>
+    <i class="led-corner"></i>
+    <i class="led-corner"></i>
+    <i class="led-corner"></i>
+    <i class="led-corner"></i>
+    <i class="led-lens one"></i>
+    <i class="led-lens two"></i>
+    <i class="led-lens three"></i>
+  </div>
   <div class="floaters" aria-hidden="true">
     <span class="sticker star s1">★</span>
     <span class="sticker star s2">♥</span>
@@ -1318,6 +1420,7 @@
 
       function syncPlayState() {
         const playing = !audio.paused;
+        document.body.classList.toggle("music-lit", playing);
         player.classList.toggle("is-playing", playing);
         playBtn.textContent = playing ? "Ⅱ" : "▶";
         playBtn.setAttribute("aria-label", playing ? "暂停" : "播放");
@@ -1363,7 +1466,10 @@
       audio.addEventListener("timeupdate", updateTime);
       audio.addEventListener("loadedmetadata", updateTime);
       audio.addEventListener("ended", () => loadTrack(current + 1, true));
-      audio.addEventListener("error", () => showLyricNotice(`等待音频文件：${tracks[current].audio}`));
+      audio.addEventListener("error", () => {
+        document.body.classList.remove("music-lit");
+        showLyricNotice(`等待音频文件：${tracks[current].audio}`);
+      });
 
       loadTrack(current, false);
     })();
