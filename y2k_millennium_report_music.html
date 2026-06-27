@@ -1,0 +1,1372 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QQ空间·葬爱千禧纪念馆｜中国千禧年代文化深度百科</title>
+  <style>
+    :root{
+      --bg:#120012;
+      --bg2:#220026;
+      --bg3:#341048;
+      --panel:#310a47ee;
+      --panel2:#45115be8;
+      --line:#ff8ce666;
+      --hot:#ff58c7;
+      --pink2:#ff9ae5;
+      --cyan:#70f0ff;
+      --blue:#89a6ff;
+      --violet:#b06cff;
+      --yellow:#fff17f;
+      --lime:#ccff7d;
+      --ink:#281d34;
+      --ink2:#54456a;
+      --paper:#fff9fd;
+      --paper2:#fffefe;
+      --paper3:#f9f4ff;
+      --muted:#f5e6f7d8;
+      --shadow:0 14px 34px rgba(31,7,42,.18),0 24px 80px rgba(22,2,33,.18);
+      --glow:0 0 0 1px rgba(255,255,255,.14),0 12px 28px rgba(0,0,0,.28),0 0 42px rgba(255,88,199,.20);
+      --radius:22px;
+      --font:"Microsoft YaHei","PingFang SC",Arial,sans-serif;
+      --mono:"Courier New",monospace;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:#fff8ff;
+      font-family:var(--font);
+      background:
+        radial-gradient(circle at 9% 10%, rgba(255,88,199,.27), transparent 22%),
+        radial-gradient(circle at 88% 10%, rgba(112,240,255,.18), transparent 20%),
+        radial-gradient(circle at 50% 36%, rgba(176,108,255,.16), transparent 28%),
+        radial-gradient(circle at 85% 85%, rgba(255,241,127,.09), transparent 20%),
+        linear-gradient(180deg, #150013 0%, #100013 30%, #1b0222 100%);
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background:
+        repeating-linear-gradient(to bottom, rgba(255,255,255,.05), rgba(255,255,255,.05) 1px, transparent 1px, transparent 3px),
+        radial-gradient(circle at center, transparent 58%, rgba(0,0,0,.36) 100%);
+      opacity:.26;
+      pointer-events:none;
+      z-index:999;
+      mix-blend-mode:screen;
+    }
+    body::after{
+      content:"";
+      position:fixed; inset:0;
+      background-image:
+        radial-gradient(circle at 30px 24px, rgba(255,255,255,.09) 0 1px, transparent 1px),
+        radial-gradient(circle at 110px 60px, rgba(255,126,227,.12) 0 1.5px, transparent 1.5px),
+        radial-gradient(circle at 160px 110px, rgba(112,240,255,.10) 0 1.2px, transparent 1.2px),
+        radial-gradient(circle at 70px 120px, rgba(255,255,255,.08) 0 1px, transparent 1px);
+      background-size:200px 160px;
+      opacity:.30;
+      pointer-events:none;
+      z-index:-1;
+    }
+    a{color:inherit}
+    .wrap{width:min(1380px, calc(100vw - 28px)); margin:auto}
+    @keyframes twinkle{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.18)}}
+    @keyframes blink{0%,45%{opacity:1}50%,100%{opacity:.15}}
+    @keyframes marqueeX{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes tilt{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(4deg)}}
+    .blink{animation:blink 1.2s step-end infinite}
+    .sparkles, .sparkles:before, .sparkles:after{
+      position:absolute; content:"✦"; color:#fff; font-size:18px; text-shadow:0 0 8px var(--cyan),0 0 14px var(--hot);
+      animation:twinkle 2.3s infinite ease-in-out;
+    }
+    .sparkles{top:40px;right:90px}
+    .sparkles:before{top:90px;left:-260px; animation-delay:.7s}
+    .sparkles:after{top:260px;left:-120px; animation-delay:1.3s}
+    .floaters{position:fixed; inset:0; pointer-events:none; z-index:30}
+    .sticker{position:absolute; display:flex; align-items:center; justify-content:center; padding:8px 12px; border-radius:999px; font-weight:900; letter-spacing:.04em; color:#fff; border:1px solid rgba(255,255,255,.26); box-shadow:var(--glow); backdrop-filter:blur(6px)}
+    .sticker.star{width:48px;height:48px;border-radius:50%; font-size:22px; background:linear-gradient(135deg, rgba(255,88,199,.28), rgba(112,240,255,.18)); animation:floaty 3.2s infinite ease-in-out}
+    .sticker.label{background:linear-gradient(135deg, rgba(255,88,199,.34), rgba(176,108,255,.18)); font-size:12px; animation:floaty 4s infinite ease-in-out}
+    .s1{top:108px; left:18px}.s2{top:260px; right:18px; animation-delay:.9s}.s3{top:54%; left:16px; animation-delay:1.2s}.s4{bottom:110px; right:20px; animation-delay:.6s}
+    .l1{top:170px; right:60px}.l2{top:430px; left:24px; animation-delay:.6s}.l3{bottom:180px; left:26px; animation-delay:1.3s}.l4{bottom:240px; right:30px; animation-delay:1.1s}
+    .topbar{
+      position:sticky; top:0; z-index:80;
+      backdrop-filter:blur(12px);
+      background:linear-gradient(90deg, rgba(28,6,36,.92), rgba(63,18,78,.88));
+      border-bottom:1px solid rgba(255,255,255,.12);
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+    }
+    .topbar .inner{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:60px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.08em; text-shadow:0 0 10px rgba(255,88,199,.60),0 0 18px rgba(176,108,255,.48)}
+    .brand .heart{width:28px;height:28px;border-radius:9px 9px 18px 18px; transform:rotate(-45deg); position:relative;background:linear-gradient(135deg, #ff8be6, #7bd6ff); box-shadow:0 0 16px rgba(255,79,216,.46)}
+    .brand .heart:before,.brand .heart:after{content:"";position:absolute;width:28px;height:28px;border-radius:50%;background:inherit}
+    .brand .heart:before{top:-14px;left:0}.brand .heart:after{left:14px;top:0}
+    .nav{display:flex; gap:8px; overflow:auto; padding:6px 0}
+    .nav a{white-space:nowrap; text-decoration:none; font-size:13px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.16); background:linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.04)); box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+    .nav a:hover{background:linear-gradient(180deg, rgba(255,88,199,.22), rgba(112,240,255,.10)); box-shadow:0 0 18px rgba(255,88,199,.20)}
+    .hero{position:relative; padding:24px 0 36px}
+    .marquee-shell{margin-top:18px;overflow:hidden;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg, rgba(255,88,199,.22), rgba(112,240,255,.08), rgba(255,88,199,.22)); box-shadow:var(--glow)}
+    .marquee-track{display:flex; width:max-content; animation:marqueeX 24s linear infinite}
+    .marquee-track span{padding:10px 22px; font-weight:800; letter-spacing:.06em; text-shadow:0 0 10px rgba(255,88,199,.35)}
+    .hero-grid{display:grid; grid-template-columns:1.02fr .98fr; gap:22px; align-items:stretch; margin-top:22px}
+    .panel{position:relative;background:linear-gradient(180deg, rgba(52,15,72,.90), rgba(24,8,39,.92));border:1px solid rgba(255,255,255,.14);border-radius:26px;box-shadow:var(--glow);overflow:hidden}
+    .panel::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.10), transparent 22%); pointer-events:none}
+    .titlebox{padding:28px 28px 26px}
+    .badge-row{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:14px}
+    .badge{font-size:12px; letter-spacing:.06em; padding:7px 10px; border-radius:999px; color:#fff; background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.14)}
+    h1{margin:0 0 12px; line-height:.92; font-size:clamp(42px, 7vw, 98px); font-weight:1000; letter-spacing:-.06em; text-transform:uppercase; background:linear-gradient(90deg, #fff 0%, #ffb2ea 24%, #a8f6ff 49%, #fff0a0 73%, #ffffff 100%); -webkit-background-clip:text; background-clip:text; color:transparent; filter:drop-shadow(0 8px 20px rgba(0,0,0,.42))}
+    .lead{font-size:18px; line-height:1.95; color:#f8eff9; max-width:860px}
+    .quote-card{padding:18px 18px 16px; display:grid; gap:14px}
+    .quote-card .qq-title{font-weight:900; text-align:center; letter-spacing:.08em; color:#fff; text-shadow:0 0 8px rgba(255,88,199,.45),0 0 14px rgba(112,240,255,.35)}
+    .qq-window{border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.15); background:rgba(0,0,0,.16)}
+    .qq-window .bar{display:flex; align-items:center; justify-content:space-between; padding:10px 12px; background:linear-gradient(90deg, rgba(255,88,199,.32), rgba(112,240,255,.18)); font-size:13px; font-weight:800}
+    .qq-window .screen{padding:14px 14px 16px; display:grid; gap:12px}
+    .emo{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.15); font-size:12px}
+    .status{border:1px dashed rgba(255,255,255,.20); border-radius:16px; padding:14px; background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); color:#fff7fb; line-height:1.85; font-size:15px}
+    .status .pink{color:#ffc0ec}.status .cyan{color:#b6fbff}.status .yellow{color:#fff4b8}
+    .metrics{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:16px}
+    .metric{padding:14px 12px; border-radius:16px; border:1px solid rgba(255,255,255,.14); background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03)); text-align:center}
+    .metric b{display:block; font-size:22px; margin-bottom:4px; color:#fff}
+    .side-tags{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+    .tag-card{padding:13px 12px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,88,199,.11), rgba(112,240,255,.04)); font-size:14px; line-height:1.75}
+    .section{padding:16px 0 10px}
+    .section-shell{display:grid; grid-template-columns:294px 1fr; gap:22px}
+    .toc{position:sticky; top:74px; align-self:start; padding:18px; background:linear-gradient(180deg, rgba(48,14,66,.95), rgba(25,10,39,.98)); border:1px solid rgba(255,255,255,.14); border-radius:22px; box-shadow:var(--glow)}
+    .toc h3{margin:0 0 12px; font-size:18px; color:#fff; text-shadow:0 0 10px rgba(255,88,199,.42)}
+    .toc a{display:block; text-decoration:none; margin:8px 0; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); font-size:14px}
+    .toc a:hover{background:linear-gradient(90deg, rgba(255,88,199,.18), rgba(112,240,255,.09))}
+    .note-box{margin-top:16px; padding:12px; border-radius:12px; background:rgba(255,255,255,.05); border:1px dashed rgba(255,255,255,.18); font-size:13px; line-height:1.75; color:var(--muted)}
+    .main{display:grid; gap:26px; padding-bottom:8px}
+    .card{position:relative; padding:28px 30px 26px; background:linear-gradient(180deg, var(--paper) 0%, var(--paper2) 100%); color:var(--ink); border:2px solid rgba(154,104,192,.26); border-radius:28px; box-shadow:var(--shadow); overflow:hidden; isolation:isolate}
+    .main .card:nth-child(odd){margin-right:44px}
+    .main .card:nth-child(even){margin-left:44px}
+    .main .card:nth-child(3n+1){border-color:rgba(255,104,206,.28)}
+    .main .card:nth-child(3n+2){border-color:rgba(112,240,255,.30)}
+    .main .card:nth-child(3n+3){border-color:rgba(176,108,255,.28)}
+    .card::before{content:""; position:absolute; inset:0 0 auto 0; height:10px; background:linear-gradient(90deg, #ff84cf, #8ee7ff 48%, #ffe585 100%); z-index:0}
+    .card::after{position:absolute; top:14px; right:18px; padding:5px 10px; border-radius:999px; font-size:11px; font-weight:900; color:#fff; border:1px solid rgba(255,255,255,.22); box-shadow:0 8px 18px rgba(88,28,121,.14); z-index:1}
+    .main .card:nth-child(3n+1)::after{content:"★ 空间日志 ★"; background:linear-gradient(90deg, rgba(255,88,199,.88), rgba(176,108,255,.84))}
+    .main .card:nth-child(3n+2)::after{content:"♥ 今日心情 ♥"; background:linear-gradient(90deg, rgba(112,240,255,.86), rgba(127,163,255,.86))}
+    .main .card:nth-child(3n+3)::after{content:"✦ 葬爱收藏 ✦"; background:linear-gradient(90deg, rgba(255,164,220,.86), rgba(255,216,110,.80))}
+    .card > *{position:relative; z-index:1}
+    .card h2{margin:0 0 16px; font-size:31px; line-height:1.22; letter-spacing:.01em; color:#3c204d; display:flex; align-items:center; gap:10px; padding-bottom:12px; border-bottom:1px solid rgba(143,104,173,.18)}
+    .card h2 .icon{font-size:26px; animation:floaty 3.6s infinite ease-in-out}
+    .card h3{margin:22px 0 10px; font-size:22px; color:#5d2f79}
+    .card h4{margin:16px 0 8px; font-size:17px; color:#35697d}
+    .card p{margin:11px 0; line-height:2; color:var(--ink2); max-width:90ch}
+    .card ul,.card ol{margin:10px 0 10px 22px; padding:0; max-width:92ch}
+    .card li{margin:8px 0; line-height:1.95; color:var(--ink2)}
+    .card strong{color:#2d1b38}
+    .grid2,.grid3,.grid4{display:grid; gap:14px; margin-top:10px}
+    .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .mini{padding:15px 16px; border-radius:18px; border:1px solid rgba(130,88,164,.16); background:linear-gradient(180deg, #fff 0%, #f8f3ff 100%); box-shadow:0 8px 18px rgba(71,33,97,.06); color:var(--ink2); line-height:1.85}
+    .mini strong{color:#3b2249; display:block; margin-bottom:6px}
+    .timeline{display:grid; gap:12px; margin-top:10px}
+    .year{display:grid; grid-template-columns:128px 1fr; gap:14px; align-items:start; padding:14px; border-radius:18px; border:1px solid rgba(134,94,162,.16); background:linear-gradient(90deg, #fff7fc 0%, #fbfbff 100%); box-shadow:0 8px 18px rgba(71,33,97,.05)}
+    .year b{display:inline-block; padding:9px 12px; border-radius:999px; background:linear-gradient(90deg, rgba(255,88,199,.18), rgba(112,240,255,.14)); color:#442358; text-align:center}
+    table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:18px; margin-top:12px; box-shadow:0 8px 18px rgba(71,33,97,.05)}
+    th,td{padding:13px 14px; border-right:1px solid rgba(140,103,169,.12); border-bottom:1px solid rgba(140,103,169,.12); vertical-align:top; line-height:1.82}
+    th:last-child,td:last-child{border-right:none}
+    tr:last-child td{border-bottom:none}
+    th{background:linear-gradient(180deg, #f7d6eb 0%, #eaf5ff 100%); text-align:left; color:#3a2348}
+    td{background:#fff; color:var(--ink2)}
+    .tag-cloud{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .tag{padding:8px 12px; border-radius:999px; font-size:13px; line-height:1.3; background:linear-gradient(180deg, #fff 0%, #f6f1ff 100%); border:1px solid rgba(130,88,164,.16); color:#513d63}
+    .symbol-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:8px}
+    .symbol-group{padding:16px; border-radius:18px; border:1px solid rgba(130,88,164,.16); background:linear-gradient(180deg, #fff 0%, #f9f5ff 100%); box-shadow:0 8px 18px rgba(71,33,97,.05)}
+    .symbol-group h4{margin:0 0 8px; color:#412953}
+    .symbol-group ul{margin:6px 0 0 18px}
+    details{border:1px solid rgba(130,88,164,.16); border-radius:18px; padding:14px 15px; background:linear-gradient(180deg, #fff 0%, #faf7ff 100%); box-shadow:0 8px 18px rgba(71,33,97,.04)}
+    details + details{margin-top:12px}
+    summary{cursor:pointer; font-weight:900; color:#45295a; list-style:none}
+    summary::-webkit-details-marker{display:none}
+    .footer{padding:28px 0 50px; color:var(--muted)}
+    .foot-card{padding:20px 22px; border-radius:24px; background:linear-gradient(180deg, rgba(44,17,61,.92), rgba(22,8,35,.96)); border:1px solid rgba(255,255,255,.12); box-shadow:var(--glow)}
+    .button-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+    .btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none; padding:10px 14px; border-radius:999px; background:linear-gradient(90deg, rgba(255,88,199,.24), rgba(112,240,255,.14)); border:1px solid rgba(255,255,255,.16); font-weight:800}
+    .small{font-size:13px; color:var(--muted)}
+    .center{text-align:center}
+    .hr{height:1px; background:linear-gradient(90deg, transparent, rgba(126,90,156,.24), transparent); margin:20px 0}
+    .backtop{position:fixed; right:16px; bottom:16px; z-index:100; text-decoration:none; padding:12px 14px; border-radius:999px; background:linear-gradient(90deg, rgba(255,88,199,.34), rgba(112,240,255,.18)); border:1px solid rgba(255,255,255,.18); box-shadow:var(--glow); font-weight:900}
+    .qzone-player{
+      position:fixed;
+      left:16px;
+      bottom:16px;
+      z-index:1200;
+      width:min(420px, calc(100vw - 32px));
+      color:#fff;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:18px;
+      background:
+        linear-gradient(180deg, rgba(58,9,73,.94), rgba(16,0,27,.97)),
+        radial-gradient(circle at 12% 15%, rgba(255,88,199,.22), transparent 36%);
+      box-shadow:0 18px 50px rgba(0,0,0,.42), 0 0 34px rgba(255,88,199,.22);
+      overflow:hidden;
+      backdrop-filter:blur(14px);
+    }
+    .qzone-player::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0 1px, transparent 1px 8px);
+      opacity:.35;
+      mix-blend-mode:screen;
+    }
+    .qzone-now{
+      position:relative;
+      display:grid;
+      grid-template-columns:54px 1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+    }
+    .qzone-disc{
+      width:54px;
+      height:54px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at center, #16001f 0 9px, #ffe8fb 10px 12px, transparent 13px),
+        conic-gradient(from 90deg, #ff58c7, #70f0ff, #fff17f, #b06cff, #ff58c7);
+      box-shadow:0 0 18px rgba(112,240,255,.34);
+      animation:qzoneSpin 7s linear infinite;
+      animation-play-state:paused;
+    }
+    .qzone-player.is-playing .qzone-disc{animation-play-state:running}
+    @keyframes qzoneSpin{to{transform:rotate(360deg)}}
+    .qzone-title{
+      min-width:0;
+    }
+    .qzone-title strong{
+      display:block;
+      font-size:15px;
+      line-height:1.3;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      text-shadow:0 0 10px rgba(255,88,199,.45);
+    }
+    .qzone-title span{
+      display:block;
+      margin-top:4px;
+      color:rgba(255,248,255,.72);
+      font-size:12px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .qzone-toggle{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.34);
+      color:#260032;
+      background:linear-gradient(135deg, #fff17f, #ff9ae5 52%, #70f0ff);
+      box-shadow:0 0 20px rgba(255,88,199,.35);
+      cursor:pointer;
+      font-weight:900;
+      font-size:18px;
+    }
+    .qzone-controls{
+      position:relative;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      gap:10px;
+      align-items:center;
+      padding:0 12px 10px;
+    }
+    .qzone-mini-buttons{
+      display:flex;
+      gap:6px;
+      align-items:center;
+    }
+    .qzone-icon-btn{
+      width:30px;
+      height:30px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      cursor:pointer;
+      font-weight:900;
+    }
+    .qzone-icon-btn:hover,.qzone-toggle:hover{filter:brightness(1.08)}
+    .qzone-seek{
+      width:100%;
+      accent-color:#ff58c7;
+      cursor:pointer;
+    }
+    .qzone-time{
+      color:rgba(255,248,255,.72);
+      font:12px var(--mono);
+      min-width:76px;
+      text-align:right;
+    }
+    .qzone-lyric{
+      position:relative;
+      min-height:70px;
+      max-height:92px;
+      overflow:hidden;
+      border-top:1px solid rgba(255,255,255,.12);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.16);
+      padding:10px 14px;
+      text-align:center;
+    }
+    .qzone-lyric-line{
+      margin:4px 0;
+      color:rgba(255,248,255,.58);
+      font-size:13px;
+      line-height:1.5;
+      transition:color .2s, transform .2s, text-shadow .2s;
+    }
+    .qzone-lyric-line.active{
+      color:#fff17f;
+      font-size:15px;
+      font-weight:900;
+      transform:scale(1.02);
+      text-shadow:0 0 10px rgba(255,88,199,.55);
+    }
+    .qzone-playlist{
+      position:relative;
+      display:none;
+      max-height:330px;
+      overflow:auto;
+      border-top:1px solid rgba(255,255,255,.14);
+      background:rgba(10,0,20,.50);
+      padding:8px;
+    }
+    .qzone-player.show-list .qzone-playlist{display:block}
+    .qzone-track{
+      display:grid;
+      grid-template-columns:28px 1fr;
+      gap:8px;
+      width:100%;
+      border:0;
+      border-radius:12px;
+      padding:8px;
+      color:#fff;
+      background:transparent;
+      text-align:left;
+      cursor:pointer;
+    }
+    .qzone-track:hover,.qzone-track.active{
+      background:linear-gradient(90deg, rgba(255,88,199,.26), rgba(112,240,255,.12));
+    }
+    .qzone-track b{
+      display:grid;
+      place-items:center;
+      height:28px;
+      border-radius:8px;
+      color:#2a0033;
+      background:#fff17f;
+      font-size:12px;
+    }
+    .qzone-track strong,.qzone-track span{
+      display:block;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .qzone-track strong{font-size:13px}
+    .qzone-track span{margin-top:3px; color:rgba(255,248,255,.66); font-size:12px}
+    .qzone-note{
+      position:relative;
+      padding:8px 12px 10px;
+      color:rgba(255,248,255,.62);
+      font-size:11px;
+      line-height:1.5;
+    }
+    @media (max-width:1120px){
+      .hero-grid,.section-shell{grid-template-columns:1fr}
+      .toc{position:relative; top:auto}
+      .main .card:nth-child(odd), .main .card:nth-child(even){margin-left:0; margin-right:0}
+      .floaters{display:none}
+    }
+    @media (max-width:860px){
+      .grid2,.grid3,.grid4,.metrics,.symbol-grid,.side-tags{grid-template-columns:1fr}
+      .year{grid-template-columns:1fr}
+      h1{font-size:56px}
+      .titlebox,.quote-card,.card{padding:20px}
+      .wrap{width:min(100vw - 16px, 1360px)}
+      .card h2{font-size:26px}
+      .qzone-player{left:8px; right:8px; bottom:8px; width:auto}
+      .qzone-now{grid-template-columns:46px 1fr auto}
+      .qzone-disc{width:46px; height:46px}
+      .qzone-controls{grid-template-columns:1fr; gap:8px}
+      .qzone-mini-buttons{justify-content:center}
+      .qzone-time{text-align:center; min-width:0}
+      .backtop{bottom:214px}
+    }
+</style>
+</head>
+<body>
+  <a id="top"></a>
+  <div class="floaters" aria-hidden="true">
+    <span class="sticker star s1">★</span>
+    <span class="sticker star s2">♥</span>
+    <span class="sticker star s3">✦</span>
+    <span class="sticker star s4">☆</span>
+    <span class="sticker label l1">欢迎踩踩空间</span>
+    <span class="sticker label l2">今日心情：超想回到 2005</span>
+    <span class="sticker label l3">QQ空间装修中…</span>
+    <span class="sticker label l4">非主流进行时</span>
+  </div>
+  <div class="topbar">
+    <div class="wrap inner">
+      <div class="brand"><span class="heart"></span><span>QQ空间 · 葬爱千禧纪念馆</span></div>
+      <nav class="nav">
+        <a href="#summary">总览</a>
+        <a href="#timeline">时间轴</a>
+        <a href="#internet">互联网</a>
+        <a href="#nonmainstream">非主流</a>
+        <a href="#music">音乐</a>
+        <a href="#compare">对比今天</a>
+        <a href="#guide">回到千禧</a>
+        <a href="#encyclopedia">符号百科</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero wrap">
+    <div class="sparkles"></div>
+    <div class="marquee-shell">
+      <div class="marquee-track">
+        <span>★ 欢迎来到千禧年 ★ QQ空间 ★ 火星文 ★ 葬爱家族 ★ 跑马灯 ★ 彩铃时代 ★ 诺基亚 ★ 翻盖手机 ★ CCD ★ 网吧 ★ 千千静听 ★</span>
+        <span>★ 欢迎来到千禧年 ★ QQ空间 ★ 火星文 ★ 葬爱家族 ★ 跑马灯 ★ 彩铃时代 ★ 诺基亚 ★ 翻盖手机 ★ CCD ★ 网吧 ★ 千千静听 ★</span>
+      </div>
+    </div>
+
+    <div class="hero-grid">
+      <section class="panel titlebox">
+        <div class="badge-row">
+          <span class="badge">1998—2008</span>
+          <span class="badge">中国大陆为主</span>
+          <span class="badge">兼顾全球 Y2K 语境</span>
+          <span class="badge">QQ空间 · 杀马特 · 怀旧文化</span>
+        </div>
+        <h1>Millennium<br/>Archive</h1>
+        <p class="lead">
+          这不是一篇普通的怀旧文章，而是一座尽量完整的“千禧年代文化博物馆”。它试图从经济、技术、互联网、音乐、视觉、城市生活、校园日常、非主流文化、设备媒介、社会心理与当代复兴等多个维度，解释那个年代为什么会如此独特，为什么今天的人们仍然不断回望它、召唤它、模仿它、重新发明它。
+        </p>
+        <div class="metrics">
+          <div class="metric"><b>14</b><span>核心章节</span></div>
+          <div class="metric"><b>100+</b><span>代表性文化符号</span></div>
+          <div class="metric"><b>1份</b><span>沉浸式回到千禧指南</span></div>
+        </div>
+      </section>
+
+      <aside class="panel quote-card">
+        <div class="qq-title">「那个年代的主页长什么样？」</div>
+        <div class="qq-window">
+          <div class="bar">
+            <span>★ 葬爱空间 V1.0 ★</span>
+            <span class="blink">在线中</span>
+          </div>
+          <div class="screen">
+            <div class="emo">
+              <span class="chip">紫黑渐变</span>
+              <span class="chip">闪字标题</span>
+              <span class="chip">玫瑰 / 蝴蝶 / 泪滴</span>
+              <span class="chip">火星文</span>
+              <span class="chip">QQ音乐自动播放</span>
+            </div>
+            <div class="status">
+              <div><span class="pink">◆</span> <b>空间说明：</b> 早期 QQ 空间与葬爱风格，并不是简单的“土”，而是属于那个年代的情绪可视化：<span class="cyan">浓烈、直给、带一点疼痛感、带一点舞台感，也带一点廉价却真诚的浪漫。</span></div>
+              <div><span class="pink">◆</span> 常见元素包括：<span class="yellow">黑紫底、荧光描边、跑马灯标题、动态 GIF、火星文签名、心碎图案、流泪表情、自拍大头贴、留言板互动、背景音乐自动播放。</span></div>
+              <div><span class="pink">◆</span> 这种网页今天看起来像“过度装修”，但正因为它过度，所以也格外真实——那是一种<span class="cyan">还没被极简主义规训</span>的互联网。</div>
+            </div>
+          </div>
+        </div>
+        <div class="side-tags">
+          <div class="tag-card"><strong>空间关键词</strong><br/>颓废 · 华丽 · 心碎 · 浓妆 · 玫瑰 · 镜面字 · 斜体字 · 图层叠加</div>
+          <div class="tag-card"><strong>常见氛围</strong><br/>“谁懂我的痛” / “一个人仰望星空” / “眼泪划过键盘” / “音乐在耳机里循环”</div>
+          <div class="tag-card"><strong>媒介载体</strong><br/>QQ 空间日志、相册、留言板、个性签名、QQ 秀、Flash 模板</div>
+          <div class="tag-card"><strong>为什么迷人</strong><br/>因为它把少年时代夸张的情绪，完整地摆到了屏幕正中央。</div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <section class="section wrap">
+    <div class="section-shell">
+      <aside class="toc">
+        <h3>目录 / Catalog</h3>
+        <a href="#summary">1. 千禧年总论</a>
+        <a href="#timeline">2. 时代时间轴</a>
+        <a href="#economy">3. 经济与商业</a>
+        <a href="#tech">4. 科技与设备</a>
+        <a href="#internet">5. 互联网与网站文化</a>
+        <a href="#nonmainstream">6. 非主流 / 葬爱 / 火星文</a>
+        <a href="#music">7. 音乐与声音媒介</a>
+        <a href="#entertainment">8. 影视、动漫、游戏、网吧</a>
+        <a href="#daily">9. 日常生活现场</a>
+        <a href="#aesthetic">10. 美学与视觉系统</a>
+        <a href="#society">11. 社会关系与情感结构</a>
+        <a href="#compare">12. 千禧年 vs 2020年代</a>
+        <a href="#nostalgia">13. 人们为何怀念它</a>
+        <a href="#guide">14. 今天如何重建千禧体验</a>
+        <a href="#encyclopedia">15. 千禧文化符号百科</a>
+        <div class="note-box">
+          <b>阅读说明：</b><br/>
+          本网页采用“早期 QQ 空间 / 葬爱 / 杀马特”视觉语言呈现：闪光、渐变、荧光描边、跑马灯、重装饰、强情绪。内容本身则尽量系统、冷静、完整。
+        </div>
+      </aside>
+
+      <main class="main">
+        <article class="card" id="summary">
+          <h2><span class="icon">💿</span>1. 千禧年代总论：它究竟是什么？</h2>
+          <p>
+            广义上，“千禧年”不仅是公历 2000 年这一个瞬间，它更像是一整段历史气候：大致从 1998 年前后持续到 2008 年左右。对中国大陆而言，这十年是极其关键的过渡带：一边仍保留着 90 年代末的家用电器、卡带、VCD、街边录像厅、CRT 电视、纸媒与集体生活方式；另一边又不断涌入新世界——互联网、聊天室、网吧、宽带、数码相机、MP3、手机短信、彩铃、门户网站、电子商务、网络游戏、博客与城市化的消费空间。
+          </p>
+          <p>
+            它的独特性，不只在于“旧东西还没完全消失、新东西又在快速出现”，更在于：<strong>技术的升级速度，与普通人生活世界的感知速度第一次如此贴近。</strong> 你可以在很短的几年里亲身经历：从拨号上网到宽带、从黑白/单色屏到彩屏手机、从磁带到 MP3、从写信到 QQ、从报刊杂志到搜索引擎、从逛商场到淘宝。这个时代的人们几乎每天都能感到“新的东西来了”。
+          </p>
+          <p>
+            这使得千禧年代拥有一种今天越来越稀缺的气质：<strong>面向未来的兴奋感。</strong> 与此同时，那时的技术又没有完全成熟，因此它还保留了大量粗糙、延迟、故障、美化、误差和 DIY 痕迹。正是这种“未来将至但尚未标准化”的状态，让那个年代既明亮，又粗粝；既廉价，又浪漫；既土酷，又前卫。
+          </p>
+          <div class="grid3">
+            <div class="mini"><strong>核心时代情绪</strong>期待、兴奋、青春、展示欲、私人情绪公开化、对新技术的崇拜、对城市生活的向往。</div>
+            <div class="mini"><strong>核心技术感觉</strong>一切都在变快，但还没快到“隐形”；你能清楚感知设备升级与网络连接的每一个阶段。</div>
+            <div class="mini"><strong>核心审美印象</strong>闪亮、金属、透明、镜面、渐变、泡泡字、荧光边框、夸张自拍、图层叠加、QQ 空间装修。</div>
+          </div>
+        </article>
+
+        <article class="card" id="timeline">
+          <h2><span class="icon">🕰️</span>2. 千禧年代时间轴：从“正在连线中”到“人人在线”</h2>
+          <div class="timeline">
+            <div class="year"><b>1998–1999</b><div><p><strong>互联网的入场期。</strong> 家庭电脑逐渐普及，网吧开始成为很多年轻人第一次真正“上线”的空间。QQ 前身 OICQ 在 1999 年上线，聊天室、BBS、邮箱等开始进入大众视野。城市里的 VCD、磁带、CRT 电视仍是家庭娱乐主力，但“网上冲浪”已成为一个新鲜词。</p></div></div>
+            <div class="year"><b>2000</b><div><p><strong>“千禧年”作为象征诞生。</strong> Y2K 千禧虫、世纪更替、未来想象、金属银与科技蓝的视觉风格一起出现。新浪、搜狐、网易等门户网站成为中文互联网的重要入口，网民开始形成“上网看新闻、看论坛、下载音乐”的日常习惯。</p></div></div>
+            <div class="year"><b>2001</b><div><p><strong>中国加入 WTO。</strong> 这对商业、制造、出口、城市消费与中产想象产生深远影响。互联网公司、家电品牌、通讯品牌与消费电子加速扩张。QQ 迅速成长，短信文化逐渐普及。</p></div></div>
+            <div class="year"><b>2002–2003</b><div><p><strong>网吧、论坛、下载、博客雏形全面活跃。</strong> 数码相机、MP3、彩屏手机开始成为时髦事物。非典让许多人更强烈地体会到线上联系的重要性。淘宝于 2003 年成立，电子商务开始拥有现实轮廓。</p></div></div>
+            <div class="year"><b>2004–2005</b><div><p><strong>社交化与娱乐化爆发。</strong> QQ 空间、QQ 秀、QQ 宠物、彩铃、SP 服务、博客、Flash 动画、网络歌曲、在线游戏成为年轻人生活中心。2005 年《超级女声》塑造了中国早期全民参与式流行文化。宽带普及，网速提升，下载与在线视频体验改善。</p></div></div>
+            <div class="year"><b>2006–2007</b><div><p><strong>非主流审美与校园网络文化成熟。</strong> 校内网、人人网、贴吧、天涯、猫扑、论坛签名档、头像、个人主页、相册文化全面流行。翻盖/滑盖手机进入颜值时代，诺基亚、摩托罗拉、索爱构成主流手机品牌三角。CCD 自拍、贴纸相机、大头贴机仍活跃。</p></div></div>
+            <div class="year"><b>2008</b><div><p><strong>一个高峰与分界点。</strong> 北京奥运会把国家现代化叙事推向高潮，城市景观、公共空间、消费氛围都进入更明亮的阶段。与此同时，智能手机时代已经隐约到来，千禧年代“半模拟—半数字”的气质也逐渐走向尾声。</p></div></div>
+          </div>
+        </article>
+
+        <article class="card" id="economy">
+          <h2><span class="icon">🏙️</span>3. 经济与商业：为什么千禧年会显得“上升”？</h2>
+          <h3>3.1 经济背景：增长感、机会感、进入世界市场的兴奋</h3>
+          <p>
+            千禧年代在中国的独特魅力，和宏观经济的上行体验高度相关。加入 WTO 之后，中国制造业、外贸、城市化与基础设施建设迅速发展，许多家庭第一次真实地感受到：生活在变好、收入在增加、家里不断添置新东西、城市越来越亮。那是一种相对明确的“改善叙事”。
+          </p>
+          <ul>
+            <li><strong>消费升级可见：</strong> 从黑白电视到彩电、从录音机到 VCD/DVD、从固定电话到手机、从小灵通到彩屏手机、从街边照相馆到数码相机，这些变化都具有强烈的“看得见摸得着”的升级感。</li>
+            <li><strong>城市化的情绪：</strong> 商场、超市、步行街、连锁品牌、家电卖场、网吧、KTV、大卖场和新小区共同构成了“现代生活”的视觉证据。</li>
+            <li><strong>品牌意识抬头：</strong> 万家乐、美的、海尔、TCL、长虹、联想、步步高、康佳、波导、夏新等品牌逐渐进入大众日常，品牌广告成为时代记忆的一部分。</li>
+            <li><strong>未来信念更强：</strong> 大众往往相信“明年会比今年更好”，这种预期会反过来增强对新产品、新技术与新生活方式的接受度。</li>
+          </ul>
+          <h3>3.2 商业形态：实体空间与早期互联网并存</h3>
+          <div class="grid2">
+            <div class="mini"><strong>线下商业</strong>步行街、夜市、百货商场、连锁超市、数码卖场、书店、音像店、报刊亭、小商品市场、电脑城，是千禧年的重要消费场景。</div>
+            <div class="mini"><strong>线上商业</strong>门户广告、SP 彩铃业务、付费短信、网游点卡、电商雏形、下载站、论坛导购、博客带货前身，构成早期互联网的营收逻辑。</div>
+          </div>
+          <h3>3.3 广告与消费想象</h3>
+          <p>
+            千禧年代的广告往往高度明确、旋律感强、视觉冲击大，非常擅长制造“新生活”的想象。手机广告强调时尚与身份，家电广告强调现代家庭，饮料广告强调青春与活力，互联网广告强调“联通世界”。广告语、彩铃、电视贴片、路边灯箱、公交站海报一起，把人包裹进一个“不断更新”的消费时代。
+          </p>
+          <table>
+            <thead><tr><th>领域</th><th>代表性现象</th><th>背后的文化意义</th></tr></thead>
+            <tbody>
+              <tr><td>手机</td><td>翻盖、滑盖、彩屏、换壳、铃声下载、挂饰</td><td>手机开始从工具变成个性与身份的展示物</td></tr>
+              <tr><td>家电</td><td>彩电、DVD、组合音响、空调、饮水机、电脑</td><td>“现代家庭”被设备所定义</td></tr>
+              <tr><td>互联网</td><td>门户网站广告、QQ 会员、游戏点卡、彩铃业务</td><td>线上娱乐第一次形成完整消费闭环</td></tr>
+              <tr><td>商场</td><td>百货、超市、步行街、品牌柜台、数码柜</td><td>逛街本身是一种重要休闲方式</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card" id="tech">
+          <h2><span class="icon">📱</span>4. 科技与设备：千禧年的未来感，为什么这么强？</h2>
+          <h3>4.1 电脑世界：从 CRT 到 WinXP</h3>
+          <p>
+            千禧年的电脑带着非常强烈的物理存在感：CRT 显示器笨重、机箱巨大、开机有风扇声、系统启动较慢、桌面图标五颜六色。Windows 98、Windows 2000、Windows XP 是许多人的数字启蒙系统。XP 尤其关键，它把蓝天白云的默认壁纸、圆润按钮、亮面 UI、任务栏与开始菜单，变成了整整一代人的视觉底色。
+          </p>
+          <div class="grid3">
+            <div class="mini"><strong>常见硬件</strong>CRT 显示器、球鼠、机械硬盘、光驱、软驱、音箱、耳机麦克风、打印机、U 盘、刻录机。</div>
+            <div class="mini"><strong>常见软件</strong>Winamp、千千静听、暴风影音、RealPlayer、FlashGet、迅雷、QQ、MSN、瑞星杀毒、金山词霸。</div>
+            <div class="mini"><strong>上网方式</strong>拨号上网、电话占线、宽带入户、校园网、网吧局域网，都是“连接世界”的不同阶段。</div>
+          </div>
+          <h3>4.2 随身设备：从 MP3 到 DV 的“便携革命”</h3>
+          <ul>
+            <li><strong>MP3 / MP4：</strong> 它们让“我的歌单”成为可能。音乐从家里的固定播放器中被拿出来，变成随身的私人陪伴。下载、拷贝、分类歌单、传歌，构成重要日常。</li>
+            <li><strong>数码相机 / CCD：</strong> 成像略糊、闪光灯直打、色彩偏冷或偏紫、细节不完美，但恰恰因此具备强烈年代感。今天人们重新喜欢 CCD，很大程度上就是在重新迷恋那种“不精致的真实”。</li>
+            <li><strong>DV 摄像机：</strong> 家庭旅行、婚礼、毕业典礼等都会使用。它让“把生活录下来”变得可行，也积累了许多带时间码的家庭影像。</li>
+            <li><strong>U 盘 / 光盘：</strong> 文件、歌曲、照片、软件、游戏都靠它们流通。刻录光盘是一种分享技术，也是一种情谊劳动。</li>
+          </ul>
+          <h3>4.3 手机世界：诺基亚、摩托罗拉、索爱与“型号崇拜”</h3>
+          <p>
+            千禧年的手机不是一块抽象的玻璃板，而是“具体的物件”：有形态、有机械结构、有按键手感、有翻盖啪嗒声、有滑盖阻尼、有机身颜色，有吊饰孔，也有清晰可辨认的品牌个性。
+          </p>
+          <table>
+            <thead><tr><th>品牌 / 系列</th><th>时代印象</th><th>代表性体验</th></tr></thead>
+            <tbody>
+              <tr><td>诺基亚</td><td>耐用、经典、功能机王者</td><td>短信快、按键舒服、Snake 贪吃蛇、可换电池、型号辨识度高</td></tr>
+              <tr><td>摩托罗拉</td><td>前卫、时尚、翻盖代表</td><td>RAZR 系列以纤薄、金属、翻盖仪式感赢得巨大关注</td></tr>
+              <tr><td>索尼爱立信</td><td>音乐 / 影像感强</td><td>Walkman 音乐手机、Cyber-shot 影像手机，把手机与流行生活方式绑得很紧</td></tr>
+              <tr><td>三星 / LG</td><td>韩系时尚与精致外观</td><td>滑盖、镜面、彩屏、女性向设计更加突出</td></tr>
+              <tr><td>波导 / 夏新 / TCL 等</td><td>国产品牌的参与期</td><td>更贴近大众市场，也成为电视广告中的高频出现者</td></tr>
+            </tbody>
+          </table>
+          <h3>4.4 手机文化：彩铃、短信、挂饰、主题、来电显示</h3>
+          <p>
+            那时候的手机社交非常“有仪式”。一条短信要反复斟酌字数，因为每 70 个汉字左右就可能算一条；彩铃是个人形象的一部分；来电铃声、短信音、壁纸、挂链、翻盖动作，都被赋予个性。手机不只是通讯工具，它是青春期情感表达的一个小舞台。
+          </p>
+        </article>
+
+        <article class="card" id="internet">
+          <h2><span class="icon">🌐</span>5. 互联网与网站文化：从“上网”到“养号”</h2>
+          <h3>5.1 门户、搜索与“上网入口”</h3>
+          <p>
+            早期互联网的路径与今天完全不同。今天人们打开 App，而当年人们说“我去上网”。“上网”意味着一个综合行为：先打开浏览器，看门户新闻，登录 QQ，再去论坛、贴吧、邮箱、下载站、音乐站、游戏网站、相册页面。新浪、搜狐、网易构成新闻与门户入口；百度逐渐成为搜索入口；各类导航页、下载页、论坛索引共同构成网络地图。
+          </p>
+          <h3>5.2 QQ 体系：千禧年中国互联网最完整的生活系统之一</h3>
+          <ul>
+            <li><strong>QQ 聊天：</strong> 添加好友、分组、隐身、离开、忙碌、自定义头像、抖动窗口、离线消息、群聊天，构成一整套早期在线社交礼仪。</li>
+            <li><strong>QQ 资料页：</strong> 星座、血型、地区、签名、个人说明，都是“把自己整理成一个可被观看的人”的方式。</li>
+            <li><strong>QQ 秀：</strong> 用虚拟服装、饰品与场景塑造线上身份，是中国最早的大规模虚拟形象消费体验之一。</li>
+            <li><strong>QQ 宠物：</strong> 一边聊天一边养宠物，让社交界面拥有了情感陪伴与娱乐性。</li>
+            <li><strong>QQ 空间：</strong> 是那个时代最具代表性的“自我空间”之一。日志、相册、音乐、留言板、装扮、模块布局、皮肤、Flash 挂件、访问记录，构成一套完整的个人公开化系统。</li>
+          </ul>
+          <h3>5.3 论坛、贴吧、天涯、猫扑：社区感为什么那么强？</h3>
+          <p>
+            与今天以平台算法分发为主的内容环境不同，千禧年代的网络社区更接近“按兴趣找楼层”。论坛往往有明确的板块、版规、签名档、等级体系、精华帖与站内文化。贴吧的“吧”、天涯的“版”、猫扑的“神贴”，都让人形成一种共同生活在某个虚拟公共空间里的感觉。
+          </p>
+          <div class="grid2">
+            <div class="mini"><strong>社区时代的特征</strong>用户需要主动寻找内容，因此社群边界更清晰，熟人感与小圈层感更强。</div>
+            <div class="mini"><strong>表达的物理痕迹</strong>长帖、跟帖、引用回复、签名图、头像、楼层、沙发板凳地板，这些都让互动显得更“有身体”。</div>
+          </div>
+          <h3>5.4 博客、日志与公开书写</h3>
+          <p>
+            新浪博客、QQ 空间日志、博客中国等平台让个人写作开始大规模公开化。很多青少年第一次拥有了“我的文章会被别人看到”的经验。内容从情感日记、歌词摘抄、转载文章、旅行图片、同学合照，到对电视剧、音乐、爱情的感想，构成一个极具时代质感的私人文本宇宙。
+          </p>
+          <h3>5.5 网页风格：跑马灯、Flash、GIF、模块、装扮代码</h3>
+          <ul>
+            <li>页面喜欢使用<strong>闪字、渐变字、阴影字、描边字、滚动文字、装饰边框、透明模块、动态小图标</strong>。</li>
+            <li>很多人会去搜“QQ 空间代码”“模块代码”“免费播放器代码”“漂浮挂件代码”，手动粘贴到页面里。</li>
+            <li>网页装饰并不追求“信息效率”，而是追求“看起来像我”。个性化重于统一规范。</li>
+          </ul>
+        </article>
+
+        <article class="card" id="nonmainstream">
+          <h2><span class="icon">🖤</span>6. 非主流 / 葬爱 / 杀马特 / 火星文：最浓烈的千禧中国青年视觉</h2>
+          <h3>6.1 这股风格到底是什么？</h3>
+          <p>
+            “非主流”在中国语境中，通常指 2000 年代中后期流行于青少年群体的一整套审美、情绪与社交表达方式。它并不只是发型或穿搭，更是一种综合风格系统：自拍方式、P 图方式、页面装修、文字风格、音乐偏好、恋爱叙事与“我想被看见”的强烈欲望，都在其中。葬爱、杀马特、火星文，是这套系统里最鲜艳也最被记住的部分。
+          </p>
+          <h3>6.2 非主流审美的典型元素</h3>
+          <div class="grid4">
+            <div class="mini"><strong>发型</strong>厚重刘海、发尾挑染、爆炸头、层次碎发、夸张定型、偏斜视觉重心。</div>
+            <div class="mini"><strong>妆造</strong>黑眼线、苍白底妆、亮片、泪滴感、闪光饰品、夸张自拍角度。</div>
+            <div class="mini"><strong>服装</strong>紧身上衣、铆钉、皮带、链条、蕾丝、条纹、亮面材质、宽大头像图案 T 恤。</div>
+            <div class="mini"><strong>图像</strong>高对比、柔焦、镜面、字叠字、贴纸、边框、爱心、蝴蝶、玫瑰、星星、雪花。</div>
+          </div>
+          <h3>6.3 葬爱风格：为什么“痛感美学”会流行？</h3>
+          <p>
+            葬爱风格的核心不是简单的颓废，而是把青春期的敏感、孤独、受伤感、爱情戏剧化与自我中心感，一次性推到最大音量。它喜欢使用心碎、眼泪、黑紫色调、冷白皮、凌乱文字、悲伤歌词、斜切构图、闪光边框，把“我有情绪”这件事变成一种公开表演。
+          </p>
+          <p>
+            从文化心理上看，这种风格恰好出现于：互联网开始给普通青少年提供展示空间，但现实身份仍然比较受限的时期。一个原本在班级或家庭中并不显眼的人，可以在网上通过头像、签名、照片、日志、空间装扮，重新塑造出一个更戏剧化、更令人注意的自己。<strong>非主流的本质之一，是早期互联网时代的自我品牌化。</strong>
+          </p>
+          <h3>6.4 火星文：一种文字上的“叛逆滤镜”</h3>
+          <p>
+            火星文并不是严格统一的文字系统，而是一种混合写法：简体、繁体、偏旁替换、符号、日文片假名、英文、数字与形近字交错使用，形成一种既难读又很有“圈层感”的语言外观。它的目的不只是交流，更是制造风格。看不太清、看不太懂，恰好强化了“这是我们的世界”的边界感。
+          </p>
+          <table>
+            <thead><tr><th>维度</th><th>典型表现</th><th>深层意义</th></tr></thead>
+            <tbody>
+              <tr><td>文字</td><td>火星文、繁体字、特殊符号、长串省略号</td><td>通过书写表面制造身份与情绪氛围</td></tr>
+              <tr><td>摄影</td><td>45 度仰拍、遮脸自拍、闪光灯直打、镜前自拍</td><td>自拍不再只是记录，而是角色扮演</td></tr>
+              <tr><td>主页</td><td>黑紫底、玫瑰、心碎、蝴蝶、飘雪、音乐自动播放</td><td>把个人主页改造成情绪剧场</td></tr>
+              <tr><td>音乐</td><td>伤感情歌、网络歌曲、带一点舞曲感的流行情歌</td><td>情绪要直给，旋律要容易循环</td></tr>
+            </tbody>
+          </table>
+          <h3>6.5 杀马特与工厂青年文化</h3>
+          <p>
+            杀马特不能只被理解为“奇怪造型”。它也和城镇化、工厂青年、县城青年、低成本时尚、自我可见性与网络传播有关。很多青年在现实中缺少被尊重与被凝视的空间，于是通过极端发型、夸张照片与群体命名，创造出一种“我不再普通”的存在方式。今天重新回看时，杀马特不只是一个被消费过的笑话，它也承载了一整代边缘青年极其真诚的审美实验与尊严诉求。
+          </p>
+          <details open>
+            <summary>补充：QQ 空间早期“葬爱页面”的常见组件</summary>
+            <ul>
+              <li>进入空间先自动播放 BGM，常常是一首伤感或甜蜜流行情歌。</li>
+              <li>大标题用闪光艺术字，可能写着“欢迎光临”“如果爱请深爱”“谁会懂我的眼泪”。</li>
+              <li>页面背景多为黑、紫、深蓝，也可能叠加玫瑰、羽毛、蝴蝶、月亮、十字架等素材。</li>
+              <li>相册封面往往是经过 PS 处理的自拍：柔焦、磨皮、光斑、泪滴贴纸、繁体字签名。</li>
+              <li>日志喜欢转载歌词、长篇情感文、青春伤痛小说片段、星座测试、爱情心理测试。</li>
+              <li>留言板与踩空间构成社交活动：谁来过、谁留言、谁回踩，都是微妙的人际线索。</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="card" id="music">
+          <h2><span class="icon">🎧</span>7. 音乐与声音媒介：千禧年代为什么像一首歌？</h2>
+          <h3>7.1 华语流行音乐的黄金密度</h3>
+          <p>
+            千禧年代的华语流行音乐，拥有极高的“公共共享度”。周杰伦、林俊杰、王力宏、孙燕姿、蔡依林、S.H.E、梁静茹、张韶涵、陈奕迅、潘玮柏、飞轮海、五月天、许嵩、Tank、光良、陶喆、萧亚轩、F.I.R. 等名字，几乎都曾密集进入大众耳朵。那个时代的歌曲能同时在电视、KTV、MP3、商场、街边店铺、学校广播、彩铃与 QQ 音乐插件里反复出现，形成高度共同记忆。
+          </p>
+          <h3>7.2 音乐为什么重要？</h3>
+          <ul>
+            <li><strong>它是青春情绪的底噪：</strong> 暗恋、分手、毕业、晚自习、放学路上、网吧、夜骑、坐公交、写日记，背后都有歌。</li>
+            <li><strong>它是社交货币：</strong> 互相传歌、刻盘、推荐歌单、设彩铃、改空间背景音乐，是建立关系的一种方式。</li>
+            <li><strong>它是审美启蒙：</strong> 很多人第一次真正感受到“歌词”“编曲”“MV”“歌手形象”的整体魅力，就是在千禧年代。</li>
+          </ul>
+          <h3>7.3 典型音乐渠道</h3>
+          <div class="grid3">
+            <div class="mini"><strong>实体渠道</strong>磁带、CD、VCD、DVD、音像店、书店附赠光盘、正版专辑与盗版打口碟并存。</div>
+            <div class="mini"><strong>数字渠道</strong>MP3 下载站、论坛资源帖、P2P 软件、QQ 音乐插件、千千静听、本地歌词文件。</div>
+            <div class="mini"><strong>公共播放</strong>彩铃、KTV、电视音乐榜、校园广播、商场外放、公交沿街店面。</div>
+          </div>
+          <h3>7.4 代表性音乐人群像</h3>
+          <table>
+            <thead><tr><th>类别</th><th>代表人物 / 组合</th><th>时代意义</th></tr></thead>
+            <tbody>
+              <tr><td>华语创作天王</td><td>周杰伦、王力宏、陶喆、林俊杰</td><td>推动 R&B、中国风、流行编曲与偶像想象进入主流</td></tr>
+              <tr><td>青春女声</td><td>孙燕姿、梁静茹、张韶涵、蔡依林、萧亚轩</td><td>塑造了从甜美到倔强、从抒情到舞曲的多种女性流行形象</td></tr>
+              <tr><td>组合偶像</td><td>S.H.E、五月天、F.I.R.、飞轮海</td><td>满足校园群体的陪伴感与集体青春认同</td></tr>
+              <tr><td>网络歌手</td><td>香香、庞龙、郑源、欢子、许嵩等</td><td>证明互联网传播可以改变音乐的抵达路径</td></tr>
+            </tbody>
+          </table>
+          <h3>7.5 代表性的听觉记忆</h3>
+          <ul>
+            <li>手机响起和弦铃声，或设置成当下最红的一段副歌。</li>
+            <li>QQ 上线提示音、抖动窗口音、消息提示音。</li>
+            <li>Windows 开机 / 关机音效，MP3 切歌音，光盘仓弹出音。</li>
+            <li>网吧环境中的键盘声、点击声、游戏背景音、聊天室提示音。</li>
+            <li>商场与步行街重复播放的热门歌曲，让城市像一台大型播放器。</li>
+          </ul>
+          <details>
+            <summary>扩展：一些具有典型千禧年代氛围的音乐主题</summary>
+            <ul>
+              <li>青春校园感：适合晚自习、下课、校服、操场、广播站、日记本。</li>
+              <li>都市恋爱感：适合夜景、霓虹、耳机、公交车窗、KTV、失恋与彩铃。</li>
+              <li>非主流伤感感：适合 QQ 空间、镜前自拍、黑紫渐变、个性签名与火星文日志。</li>
+              <li>舞曲与热闹感：适合迪厅、校园舞会、劲舞团、节庆、商业街与流动摊位。</li>
+            </ul>
+          </details>
+        </article>
+
+        <article class="card" id="entertainment">
+          <h2><span class="icon">🎮</span>8. 影视、动漫、游戏、网吧：那些年最热闹的娱乐空间</h2>
+          <h3>8.1 电视剧与综艺：全民观看的公共文化</h3>
+          <p>
+            千禧年代仍然是电视强势时代。大家看同样的电视剧、同样的综艺、同样的晚会，因此公共话题密度很高。偶像剧、古装剧、青春剧、港剧、韩剧都在这一时期影响广泛。《流星花园》《仙剑奇侠传》《还珠格格》的余波、《武林外传》《恶作剧之吻》《王子变青蛙》《家有儿女》等，都构成代际共鸣。
+          </p>
+          <h3>8.2 动漫与二次元启蒙</h3>
+          <p>
+            电视台播放的日本动漫、盗版光盘、动漫杂志与后来的网络资源，共同构成许多人的早期二次元入口。《数码宝贝》《神奇宝贝》《名侦探柯南》《灌篮高手》《犬夜叉》《火影忍者》《海贼王》等，都在这一时期不断积累受众。
+          </p>
+          <h3>8.3 游戏：为什么网吧会成为一代人的文化现场？</h3>
+          <ul>
+            <li><strong>局域网与竞技：</strong> CS、红警、魔兽争霸、星际争霸，让“和朋友一起玩”成为网吧的重要吸引力。</li>
+            <li><strong>大型网游：</strong> 传奇、奇迹 MU、魔兽世界、梦幻西游、劲舞团、跑跑卡丁车、QQ 游戏等，把线上娱乐与社交关系深度绑在一起。</li>
+            <li><strong>单机与掌机：</strong> PS2、GBA、NDS、街机、家用机也在少年群体中形成各自的小圈层热情。</li>
+            <li><strong>点卡与虚拟道具：</strong> 这是很多人第一次接触“给线上娱乐付费”的经验。</li>
+          </ul>
+          <div class="grid2">
+            <div class="mini"><strong>网吧文化的气味</strong>键盘磨损、塑料椅、泡面、可乐、机箱热气、烟味、喊队友、网管、会员卡、临时下机。</div>
+            <div class="mini"><strong>网吧文化的意义</strong>它是技术普及器，也是青年社交空间，更是从现实日程短暂逃离的“平行世界入口”。</div>
+          </div>
+        </article>
+
+        <article class="card" id="daily">
+          <h2><span class="icon">🏫</span>9. 日常生活现场：学校、小卖部、街道、商场、家庭</h2>
+          <h3>9.1 学校生活：一切都更具实体感</h3>
+          <p>
+            千禧年代的学生生活高度依赖物理载体：作业本、练习册、贴纸、明星卡、涂改液、中性笔、自动铅笔、文具盒、卡通书皮、磁带英语听力、广播操、黑板报、班级值日表。信息传递依赖纸条、同学转告、电话亭与回家后的座机通话。暗恋、友情与小团体关系都建立在强烈的线下共处之上。
+          </p>
+          <h3>9.2 小卖部与零食宇宙</h3>
+          <p>
+            校门口小卖部是千禧年代最有温度的消费节点之一。它售卖的不只是零食，还有放学后的自由感。辣条、泡泡糖、汽水、冰棒、果冻、薯片、糖果、干脆面、集卡小零食、卡通贴纸、玩具、漫画书，都可能在那里被买走。许多人对“那个年代”的怀念，本质上也是对这种低成本快乐的怀念。
+          </p>
+          <h3>9.3 城市生活：步行街、夜市、音像店、数码城</h3>
+          <ul>
+            <li><strong>商场与百货：</strong> 逛街是重要娱乐。试衣、看柜台、听店里放歌、打折促销、霓虹招牌，都构成城市现代感。</li>
+            <li><strong>夜市与路边摊：</strong> 烟火气更浓，小饰品、手机挂件、发夹、贴膜、盗版碟、小吃摊一起构成混杂而鲜活的生活表面。</li>
+            <li><strong>音像店 / 报刊亭：</strong> 提供专辑、杂志、漫画、报纸、海报与偶像新闻，是文化信息的重要分发点。</li>
+            <li><strong>电脑城 / 数码城：</strong> 购买装机、刻盘、修电脑、买配件、淘 MP3/MP4/相机，是技术消费的线下现场。</li>
+          </ul>
+          <h3>9.4 家庭空间：家电与装修的年代感</h3>
+          <p>
+            千禧年代的家庭通常能从设备一眼看出年代：大背电视、木色家具、玻璃茶几、布艺沙发、电视柜、影碟机、组合音响、饮水机、电话机、台式电脑、台灯、挂历、窗帘与瓷砖地面。房屋装修会显得更厚重、更重装饰，充满“把日子过得体面”的愿望。
+          </p>
+          <div class="tag-cloud">
+            <span class="tag">大头贴</span><span class="tag">校服</span><span class="tag">作业本</span><span class="tag">黑板报</span><span class="tag">报刊亭</span><span class="tag">音像店</span><span class="tag">步行街</span><span class="tag">KTV</span><span class="tag">DVD</span><span class="tag">电话亭</span><span class="tag">公交 IC 卡</span><span class="tag">明星海报</span>
+          </div>
+        </article>
+
+        <article class="card" id="aesthetic">
+          <h2><span class="icon">✨</span>10. 美学与视觉系统：Y2K、QQ 空间、CCD 影像为什么会卷土重来？</h2>
+          <h3>10.1 全球 Y2K 与中国本土千禧美学</h3>
+          <p>
+            全球 Y2K 美学偏好金属银、透明塑料、镜面反光、未来曲线、科技蓝、荧光绿、液态质感、泡泡图形，常与“新世纪”“数码未来”相连。中国本土千禧美学则在此基础上叠加了更多民间互联网的元素：QQ 空间装扮、婚纱影楼审美、艺术字、闪图、贴纸、网店 banner、论坛签名图、非主流自拍与本地化流行情绪。
+          </p>
+          <h3>10.2 为什么它当时会这样“满”？</h3>
+          <p>
+            因为那个时代的审美还没有被极简、扁平、留白、统一组件系统大规模收编。网页和个人主页更像是“不断往上加东西”的创作过程：我喜欢音乐，就加播放器；我喜欢星星，就加闪图；我喜欢某句歌词，就让它滚动；我想显得酷，就把背景调黑、字做紫。设计首先是表达，而不是规范。
+          </p>
+          <h3>10.3 CCD / 闪光灯自拍为什么今天又流行？</h3>
+          <ul>
+            <li><strong>因为它不完美：</strong> 过曝、偏色、颗粒、拖影、噪点、边缘模糊，会制造一种“非算法计算出来”的现场感。</li>
+            <li><strong>因为它能把人拍得像记忆：</strong> 与今天高动态、高解析、肤质修复的影像不同，CCD 更像“我真的曾经在这里”。</li>
+            <li><strong>因为它有时代滤镜：</strong> 一看到那种闪光灯、日期戳、略带紫调的画面，很多人会自动联想到 2000 年代。</li>
+          </ul>
+          <h3>10.4 千禧视觉的关键语汇</h3>
+          <table>
+            <thead><tr><th>类别</th><th>视觉特征</th><th>今日复兴原因</th></tr></thead>
+            <tbody>
+              <tr><td>网页</td><td>跑马灯、艺术字、亮面按钮、图层叠加、GIF 小元素</td><td>从极简疲劳中回归“可爱而直接”的表达欲</td></tr>
+              <tr><td>摄影</td><td>CCD、闪光灯、镜前自拍、边框贴纸、时间戳</td><td>追求真实感、偶然性与低门槛的青春氛围</td></tr>
+              <tr><td>界面</td><td>渐变、拟物、玻璃感、金属感、圆润按钮</td><td>Y2K 在时尚和数字设计中被重新时髦化</td></tr>
+              <tr><td>装扮</td><td>银色、粉紫、低腰、亮片、蝴蝶、链条、发夹</td><td>“土酷”美学重新被理解为敢于存在</td></tr>
+            </tbody>
+          </table>
+        </article>
+
+        <article class="card" id="society">
+          <h2><span class="icon">💌</span>11. 社会关系与情感结构：那个年代的人际感受为何不同？</h2>
+          <p>
+            千禧年代的人际关系有几个鲜明特征。第一，<strong>熟人与半熟人社交占比较高</strong>。QQ群、同学录、留言板、空间互踩，很多互动发生在现实认识的人之间，但又因互联网介入而有了新的表达方式。第二，<strong>关系节奏更慢</strong>，一次登录、一条留言、一次看谁来过空间，都会产生期待与猜测。第三，<strong>情绪更公开但也更拐弯</strong>，很多人不直接说“我想你”，而是通过签名、状态、背景音乐、日志标题和一篇转载文章来暗示。
+          </p>
+          <div class="grid2">
+            <div class="mini"><strong>恋爱表达</strong>情侣空间、情侣头像、情侣签名、短信、彩铃、一起听同一首歌、传纸条、送刻录光盘或贴满歌词的本子。</div>
+            <div class="mini"><strong>友情关系</strong>一起去网吧、互传 MP3、帮忙踩空间、共享照片、互抄歌词、一起去大头贴机拍照、交换小说和杂志。</div>
+          </div>
+          <p>
+            当时的人际结构之所以显得更“暖”，未必是因为人与人本质上更善良，而是因为媒介环境允许大量<strong>低效率但高情感浓度</strong>的互动存在。你可以花很多时间装修空间、给某个人留言、做一张图片、传一首歌、写一篇日志。这些行为在今天可能会被认为“效率低”，但恰恰因为低效率，它们显得更有重量。
+          </p>
+        </article>
+
+        <article class="card" id="compare">
+          <h2><span class="icon">⚡</span>12. 千禧年代 vs 2020年代：今天为什么和那时如此不同？</h2>
+          <table>
+            <thead><tr><th>维度</th><th>千禧年代（约 1998–2008）</th><th>2020年代</th></tr></thead>
+            <tbody>
+              <tr><td>设备</td><td>多种专用设备并存：功能机、MP3、CCD、DV、台式机</td><td>智能手机高度整合，单一设备承担几乎全部功能</td></tr>
+              <tr><td>社交</td><td>QQ、论坛、贴吧、博客，关系更偏半熟人和兴趣圈</td><td>平台化、算法化、短视频化，社交与内容高度融合</td></tr>
+              <tr><td>网络节奏</td><td>相对慢，登录式、等待式、查收式</td><td>持续在线、即时刷新、信息过载</td></tr>
+              <tr><td>内容生产</td><td>写日志、发帖、上传相册、DIY 页面</td><td>拍短视频、直播、模板化剪辑、平台分发</td></tr>
+              <tr><td>审美</td><td>重装饰、强个性、夸张、闪亮、拟物、图层感</td><td>极简、扁平、统一化、品牌系统化</td></tr>
+              <tr><td>音乐消费</td><td>下载、刻盘、传歌、彩铃、MP3 本地播放</td><td>流媒体、会员订阅、推荐算法主导</td></tr>
+              <tr><td>摄影</td><td>CCD、卡片机、低清、闪光、时间戳、偶然性强</td><td>手机高解析、计算摄影、修图一体化、即时分享</td></tr>
+              <tr><td>商业空间</td><td>步行街、音像店、电脑城、百货和网吧更重要</td><td>商场连锁化、电商与外卖常态化、线上娱乐替代更多线下停留</td></tr>
+              <tr><td>关系感受</td><td>更慢、悬念更多、表达更迂回</td><td>更快、更碎片、更公开，也更容易疲劳</td></tr>
+              <tr><td>技术情绪</td><td>对未来抱有明显兴奋感</td><td>技术成熟但神秘感下降，同时伴随焦虑与警惕</td></tr>
+            </tbody>
+          </table>
+          <p>
+            本质上，千禧年代是“新技术正在发明生活”的年代，而 2020 年代则更像“平台已经深度管理生活”的年代。前者充满探索感与可塑性，后者更高效，却也更标准、更透明、更拥挤。
+          </p>
+        </article>
+
+        <article class="card" id="nostalgia">
+          <h2><span class="icon">🫧</span>13. 为什么人们总是怀念千禧年代？</h2>
+          <h3>13.1 怀旧并不只是“因为年轻”</h3>
+          <p>
+            当然，年龄因素很重要。很多人怀念千禧年代，是因为那时正好对应自己的童年、少年或青春期。但如果只是年龄，不足以解释为什么连没怎么亲历过那个时代的人，也会被它吸引。真正重要的是：千禧年代提供了一种今天相对稀缺的体验组合。
+          </p>
+          <ul>
+            <li><strong>技术仍有惊喜：</strong> 人们能明显感到“生活在升级”，而不是仅仅被更新推着走。</li>
+            <li><strong>网络仍有野生感：</strong> 没有那么强的平台规训，DIY、个性化、业余感和小圈层热情更显眼。</li>
+            <li><strong>关系仍有等待：</strong> 等待短信、等待上线、等待留言、等待照片洗出来，等待本身制造了情绪重量。</li>
+            <li><strong>物理媒介更多：</strong> 光盘、磁带、CD、海报、票根、照片、纸条、手写歌词本，记忆更容易附着在物体上。</li>
+            <li><strong>大众文化共享度更高：</strong> 同一首歌、同一部剧、同一个综艺被更多人共同经历，更容易形成“时代共同体”。</li>
+          </ul>
+          <h3>13.2 心理学解释：为什么回忆会偏向发光？</h3>
+          <p>
+            怀旧通常会压缩掉时代的麻烦与不便，保留那些最有情绪光泽的部分。比如当年的网速慢、下载难、设备贵、资讯闭塞、拍照不方便，其实都是真问题；但当这些不便被时间冲淡，它们反而会变成一种“有味道的阻力”，让回忆更浓。人脑往往更愿意记住第一次、青春期、群体共享、带有音乐与情绪标记的事件，因此千禧年代尤其容易被浪漫化。
+          </p>
+          <h3>13.3 社会学解释：为什么今天更想回头看？</h3>
+          <p>
+            当下的数字生活高度平台化、透明化、绩效化，人们越来越多地感到疲劳：信息过多、比较过多、表达过快、注意力被不断切碎。在这种背景下，千禧年代那种慢一点、粗糙一点、土一点、但也更真一点的互联网，自然会被重新想象成一种“更有人味的数字世界”。
+          </p>
+          <div class="grid3">
+            <div class="mini"><strong>怀旧的对象</strong>其实不是某个设备本身，而是“那时还相信未来会更好”的心情。</div>
+            <div class="mini"><strong>怀旧的机制</strong>通过歌、图像、气味、旧软件界面、设备手感，把抽象记忆重新唤醒。</div>
+            <div class="mini"><strong>怀旧的风险</strong>不要把任何年代绝对美化；真正有价值的，是理解它为何触动我们。</div>
+          </div>
+        </article>
+
+        <article class="card" id="guide">
+          <h2><span class="icon">📼</span>14. 今天如何尽量重建千禧年的生活体验？一份沉浸式实践指南</h2>
+          <h3>14.1 设备与物件：先把“手感”找回来</h3>
+          <ul>
+            <li><strong>手机：</strong> 可以收藏或体验诺基亚、摩托罗拉 RAZR、索爱 Walkman / Cyber-shot 系列、滑盖翻盖机。哪怕不开主力卡，只要能拿在手里、听一听按键声、翻一翻菜单，时代感就会回来。</li>
+            <li><strong>相机：</strong> 入手一台 CCD 卡片机，保留闪光灯直打、日期戳、自动模式，不要刻意修太多。</li>
+            <li><strong>音乐：</strong> 找一个 MP3 播放器或模拟器，把歌下载到本地，用文件夹管理，而不是流媒体推荐。</li>
+            <li><strong>电脑：</strong> 可以寻找 Windows XP 主题、复古皮肤、老版本播放器界面，体验那个年代桌面软件的视觉与操作逻辑。</li>
+            <li><strong>物理载体：</strong> 打印照片、收藏 CD、做歌词本、买贴纸、挂手机链、留票根和小卡片，让记忆重新附着在物件上。</li>
+          </ul>
+          <h3>14.2 影像方法：不是“拍复古”，而是“像当年那样拍”</h3>
+          <ol>
+            <li>多用闪光灯直打，尤其是夜晚、室内、镜子前、朋友聚会、小卖部门口、楼道、电梯、KTV、夜市。</li>
+            <li>允许轻微糊、偏色、噪点和过曝；不要把一切都修到完美。</li>
+            <li>多拍“人和环境”一起出现的照片：街边招牌、塑料凳、零食柜、网吧桌面、电脑键盘、宿舍床位、商场扶梯。</li>
+            <li>尝试大头贴式构图、镜前自拍、两三人挤进画面、45 度视角与贴纸边框。</li>
+          </ol>
+          <h3>14.3 音乐方法：建立你的“千禧歌单体系”</h3>
+          <ul>
+            <li>按场景整理歌单：<strong>晚自习歌单、QQ 空间 BGM 歌单、网吧歌单、雨天公交歌单、校园恋爱歌单、非主流伤感歌单、步行街热闹歌单</strong>。</li>
+            <li>尽量用本地文件夹管理，让“找歌、拖歌、传歌”重新变成一个有动作感的过程。</li>
+            <li>做一份“彩铃清单”，哪怕只是娱乐，也会瞬间把氛围拉回 2000 年代。</li>
+          </ul>
+          <h3>14.4 空间与房间：把居住环境调成千禧模式</h3>
+          <div class="grid2">
+            <div class="mini"><strong>房间元素</strong>透明盒彩灯、CD 架、海报墙、旧杂志、书桌台灯、塑料收纳盒、老式键盘鼠标、布艺窗帘、亮色被套、贴纸镜子。</div>
+            <div class="mini"><strong>桌面元素</strong>QQ 风格头像、Windows XP 壁纸、千千静听皮肤、Winamp 皮肤、小挂件、相册、CD、明信片、手写便签。</div>
+          </div>
+          <h3>14.5 穿搭与外出：找千禧不是 cosplay，而是找“当时的生活质地”</h3>
+          <ul>
+            <li><strong>穿搭方向：</strong> 银色、粉紫、亮面、蝴蝶结、低腰、宽松牛仔、链条配件、彩色发夹、运动外套、印花 T 恤、条纹针织等。</li>
+            <li><strong>去的地方：</strong> 老步行街、电脑城、夜市、城中村商业街、KTV、复古商场、报刊亭附近、旧式居民区、天桥、学校周边。</li>
+            <li><strong>做的事情：</strong> 打印照片、拍大头贴、逛二手市场、买旧光盘、去音像店风格的空间、唱 K、写日记、手写歌词、做主页风格图片。</li>
+          </ul>
+          <h3>14.6 数字体验：把你的互联网生活短暂改造成 2005</h3>
+          <ul>
+            <li>把社交媒体头像、封面、昵称、签名都调成千禧风格。</li>
+            <li>做一页“QQ 空间风格网页”，用艺术字、跑马灯、蝴蝶、心碎与自动播放 BGM。</li>
+            <li>使用复古输入法词库、火星文生成器、老版主题皮肤、复古 UI 小组件。</li>
+            <li>和朋友互相交换歌单、图片、长文，而不是只发短视频链接。</li>
+          </ul>
+          <details open>
+            <summary>一个周末版“千禧沉浸日”示范流程</summary>
+            <ol>
+              <li>早上：打开 Windows XP 主题桌面，播放千千静听式歌单，整理一个“QQ 空间 BGM 文件夹”。</li>
+              <li>中午：去老商场或夜市附近吃饭，顺路买小饰品、发夹、贴纸、便签本。</li>
+              <li>下午：带 CCD 或开闪光灯，用大头贴式方法和朋友互拍；去电脑城、旧街区、报刊亭附近走走。</li>
+              <li>傍晚：把照片导出，不修太狠，加日期戳或边框；挑几首歌做成一个“空间相册 BGM”。</li>
+              <li>晚上：KTV / 网吧主题局 / 在家看一部 2000 年代电视剧或综艺，再写一篇“空间日志式”日记。</li>
+            </ol>
+          </details>
+        </article>
+
+        <article class="card" id="encyclopedia">
+          <h2><span class="icon">📚</span>15. 千禧年代文化符号百科：尽量完整的收藏清单</h2>
+          <p>
+            下面这部分不追求绝对穷尽，但尽量覆盖你在回望千禧年代时最值得记住的文化符号。你可以把它当作收藏索引、创作词库、拍摄灵感板、网页设计参考或怀旧清单来用。
+          </p>
+          <div class="symbol-grid">
+            <section class="symbol-group">
+              <h4>设备 / 数码产品</h4>
+              <ul>
+                <li>CRT 显示器、台式机机箱、球鼠、软盘、刻录机、光驱、U 盘</li>
+                <li>MP3、MP4、CD 机、磁带机、复读机、组合音响、随身听</li>
+                <li>CCD 卡片机、DV 摄像机、拍立得早期机型、大头贴机</li>
+                <li>诺基亚、摩托罗拉、索爱、三星、LG、波导、夏新、步步高、小灵通</li>
+                <li>翻盖机、滑盖机、直板机、可换壳手机、彩屏手机</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>软件 / 网站 / 平台</h4>
+              <ul>
+                <li>QQ、QQ 空间、QQ 秀、QQ 宠物、QQ 音乐早期插件、QQ 游戏</li>
+                <li>MSN、飞信、聊天室、同学录、校内网、人人网</li>
+                <li>新浪、搜狐、网易、百度、贴吧、天涯、猫扑、论坛 BBS</li>
+                <li>新浪博客、博客中国、相册网、下载站、导航页</li>
+                <li>Winamp、千千静听、暴风影音、FlashGet、迅雷、瑞星、金山词霸</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>网页 / QQ空间风格词汇</h4>
+              <ul>
+                <li>跑马灯、闪字、艺术字、渐变字、描边字、镜面字、火星文</li>
+                <li>玫瑰、蝴蝶、羽毛、心碎、泪滴、十字架、月亮、星星、闪图</li>
+                <li>飘雪特效、漂浮挂件、背景音乐自动播放、Flash 模块</li>
+                <li>黑紫底、深蓝底、霓虹粉、荧光蓝、透明模块、装扮代码</li>
+                <li>踩空间、留言板、日志转载、相册封面、访问记录</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>手机文化</h4>
+              <ul>
+                <li>彩铃、来电铃声、和弦铃声、短信包月、SIM 卡、来电显示</li>
+                <li>手机挂绳、吊坠、翻盖啪嗒声、按键灯光、主题壁纸</li>
+                <li>短信告白、群发节日短信、运营商业务、SP 服务</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>音乐 / 歌手 / 听歌方式</h4>
+              <ul>
+                <li>周杰伦、林俊杰、王力宏、陶喆、陈奕迅、五月天</li>
+                <li>孙燕姿、蔡依林、梁静茹、张韶涵、萧亚轩、S.H.E、F.I.R.</li>
+                <li>许嵩、欢子、郑源、庞龙、香香等网络传播型歌手</li>
+                <li>KTV、彩铃、MP3、刻录 CD、歌词本、歌单文件夹</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>电视剧 / 综艺 / 动漫</h4>
+              <ul>
+                <li>《流星花园》《仙剑奇侠传》《武林外传》《恶作剧之吻》《王子变青蛙》《家有儿女》</li>
+                <li>《超级女声》、音乐榜节目、 MTV 类节目、晚会文化</li>
+                <li>《数码宝贝》《神奇宝贝》《名侦探柯南》《灌篮高手》《火影忍者》《海贼王》</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>游戏 / 网吧</h4>
+              <ul>
+                <li>CS、红警、魔兽争霸、星际争霸、传奇、奇迹 MU</li>
+                <li>魔兽世界、梦幻西游、劲舞团、跑跑卡丁车、QQ 游戏</li>
+                <li>PS2、GBA、NDS、街机厅、网吧会员卡、点卡</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>学校 / 文具 / 青春日常</h4>
+              <ul>
+                <li>校服、练习册、自动铅笔、涂改液、文具盒、手账贴纸</li>
+                <li>广播操、黑板报、纸条、同学录、明星贴、杂志赠品</li>
+                <li>大头贴、毕业照、班级合照、英语听力磁带、公交卡</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>城市 / 商业空间</h4>
+              <ul>
+                <li>步行街、百货商场、夜市、电脑城、数码城、KTV、音像店</li>
+                <li>报刊亭、书店、超市、家电卖场、网吧、电话亭</li>
+                <li>霓虹招牌、公交站广告、灯箱海报、街边小吃摊</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>零食 / 饮料 / 小卖部</h4>
+              <ul>
+                <li>辣条、泡泡糖、干脆面、果冻、冰棒、汽水、薯片、糖果</li>
+                <li>小卖部、零食柜、集卡零食、儿童饮料、自动售货冰柜</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>审美关键词</h4>
+              <ul>
+                <li>Y2K、金属银、镜面、果冻透明、玻璃感、荧光、渐变</li>
+                <li>闪光灯自拍、柔焦、磨皮、日期戳、边框贴纸、光斑</li>
+                <li>黑紫、粉蓝、玫红、天蓝、银白、亮片、链条、蝴蝶</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>声音与微小细节</h4>
+              <ul>
+                <li>QQ 消息提示音、上线音、抖动窗口音</li>
+                <li>Windows 开关机音、拨号连接音、短信提示音</li>
+                <li>按键声、翻盖声、光盘转动声、打印机走纸声</li>
+                <li>网吧键盘敲击、商场热门歌曲循环、小卖部冰柜嗡鸣</li>
+              </ul>
+            </section>
+          </div>
+
+          <div class="hr"></div>
+          <h3>15.1 可直接用于创作 / 设计 / 拍摄的千禧关键词清单</h3>
+          <p>
+            如果你之后想继续做海报、网页、摄影、短片、歌单或空间装扮，可以直接从下面这些关键词里抽取：<strong>QQ 空间、空间日志、踩空间、火星文、非主流、葬爱、杀马特、心碎玫瑰、闪图、艺术字、跑马灯、彩铃、翻盖手机、滑盖手机、诺基亚、索爱、CRT、Windows XP、千千静听、MP3、CCD、DV、网吧、KTV、步行街、音像店、报刊亭、校服、广播站、短信、晚自习、公交车窗、霓虹、夜市、大头贴、荧光、镜面、银色、粉紫、蓝白、透明塑料、未来感、廉价浪漫、青春痛感、城市上升感、DIY 页面、长日志、相册封面、贴纸、泪滴、蝴蝶、羽毛、星星、歌词本、刻录光盘。</strong>
+          </p>
+        </article>
+
+        <article class="card" id="appendix-more">
+          <h2><span class="icon">🗂️</span>16. 扩展附录：把千禧年再拆得更细一点</h2>
+          <p>
+            如果说前面的章节是在建立“结构理解”，那这一章就是继续往下钻，把千禧年的生活纹理拆得更细。它适合你在做网页、写文案、做视频脚本、拍照、设计海报、整理歌单时，拿来直接取用。
+          </p>
+          <h3>16.1 更细的设备记忆</h3>
+          <div class="grid2">
+            <div class="mini"><strong>电脑相关</strong>开机按电源键、机箱灯亮起、显示器“啪”一下点亮、系统启动音乐、QQ 自动登录、桌面壁纸换成偶像图、下载进度条、解压缩、杀毒软件弹窗。</div>
+            <div class="mini"><strong>手机相关</strong>拆后盖换电池、换 SIM 卡、编辑短信草稿、红外传输、蓝牙传歌、彩信、来电大头贴、换主题图标、设置待机图片、手机绳挂在机身角上。</div>
+            <div class="mini"><strong>影像相关</strong>相机内存卡容量不大、拍完要删照片腾空间、室内容易糊、闪光灯常常把人照得发白、导出照片要连数据线、很多照片一直存着没有发。</div>
+            <div class="mini"><strong>音乐相关</strong>耳机线容易缠、MP3 电量要省着用、歌词文件和歌曲文件要匹配、专辑封面不一定全、听歌顺序常常按文件名排。</div>
+          </div>
+
+          <h3>16.2 更细的网站与网络行为</h3>
+          <ul>
+            <li>上网先打开好几个窗口：门户、QQ、贴吧、论坛、下载页、音乐页，窗口会越堆越多。</li>
+            <li>论坛发帖讲究标题、排版、引用，好的帖子会被“顶”上去。</li>
+            <li>去搜索引擎里找“QQ 空间免费代码”“非主流头像”“伤感日志转载”“某某歌曲免费下载”。</li>
+            <li>在贴吧里看爆吧、精品贴、签名图，在天涯看热帖、情感帖、八卦帖，在猫扑看恶搞、神回复、流行梗。</li>
+            <li>打开别人的空间，不只是看内容，还看背景音乐是什么、最近访客是谁、相册封面是什么、留言板谁最活跃。</li>
+            <li>很多人会专门保存头像、闪图、边框素材、签名档图包，像存“数字贴纸本”。</li>
+          </ul>
+
+          <h3>16.3 更细的校园与青春现场</h3>
+          <table>
+            <thead><tr><th>场景</th><th>典型细节</th><th>为何有记忆点</th></tr></thead>
+            <tbody>
+              <tr><td>教室</td><td>黑板报、值日表、粉笔灰、风扇声、课桌抽屉里的杂志和零食、传纸条</td><td>是大多数日常情绪的发生地，友情和暗恋都在这里堆积</td></tr>
+              <tr><td>宿舍</td><td>上下铺、暖壶、脸盆、统一床单、夜聊、偷偷听歌、交换小说</td><td>密集共同生活塑造了很强的群体记忆</td></tr>
+              <tr><td>校门口</td><td>小卖部、烧烤摊、奶茶店、文具店、报刊亭、网吧入口</td><td>从纪律空间走向自由空间的转换带，情绪最鲜活</td></tr>
+              <tr><td>操场</td><td>广播、跑道、夕阳、校服、社团活动、合照</td><td>青春叙事最爱在这里发生，许多偶像剧式感受都能投射进来</td></tr>
+            </tbody>
+          </table>
+
+          <h3>16.4 更细的娱乐清单：千禧人真正会反复接触到什么</h3>
+          <div class="symbol-grid">
+            <section class="symbol-group">
+              <h4>电视与综艺习惯</h4>
+              <ul>
+                <li>守着电视台的播出时间追剧，而不是随时点播</li>
+                <li>音乐榜、偶像专访、周末综艺、节日晚会构成固定节奏</li>
+                <li>广告插播不是“可跳过”，而是记忆本身的一部分</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>阅读物</h4>
+              <ul>
+                <li>青春杂志、动漫杂志、时尚杂志、歌词本、明星写真、掌上读物</li>
+                <li>校园小说、青春疼痛文学、奇幻小说、连载漫画、小册子</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>朋友间交换</h4>
+              <ul>
+                <li>MP3 歌曲、QQ 头像包、非主流图片包、游戏安装包、电影压缩包</li>
+                <li>贴纸、明星海报、照片冲印、DVD、杂志赠品、手写卡片</li>
+              </ul>
+            </section>
+            <section class="symbol-group">
+              <h4>周末娱乐路线</h4>
+              <ul>
+                <li>逛步行街 → 吃小吃 → 去 KTV / 网吧 → 买点小饰品 → 回家听歌写日志</li>
+                <li>和同学拍大头贴 → 去书店 / 报刊亭 → 买饮料零食 → 晚上上线聊天</li>
+              </ul>
+            </section>
+          </div>
+
+          <h3>16.5 非主流 / 葬爱语言素材库</h3>
+          <p>
+            这一部分不是让你真的照搬，而是帮助你理解那种语言肌理：那时的文字强调情绪、强调姿态、强调“我有故事”。常见写法包括：长串省略号、繁体、符号插入、句子拆断、把歌词当心情说明、以“仰望”“眼泪”“孤单”“寂寞”“伤口”“回忆”等词组织个人叙事。
+          </p>
+          <div class="grid3">
+            <div class="mini"><strong>情绪词</strong>孤单、寂寞、回忆、心碎、眼泪、等待、倔强、沉默、颓废、遗忘。</div>
+            <div class="mini"><strong>意象词</strong>玫瑰、蝴蝶、星空、月光、羽毛、雨夜、十字路口、天使、黑夜、烟火。</div>
+            <div class="mini"><strong>表达方式</strong>把状态写成诗、把歌词写成签名、把页面装修成本人情绪的延伸。</div>
+          </div>
+
+          <h3>16.6 千禧年的“时间感”为什么特别？</h3>
+          <p>
+            今天很多体验都太快了：消息秒回、照片秒拍秒发、内容秒刷秒忘。千禧年代则带着一种更厚的时间层次：下载要等、上线要等、回信要等、洗照片要等、电视剧播出要等、杂志出刊要等、周末去网吧要等。正因为一切都不那么即时，所以每个事件都有“将要到来”的前奏。那种前奏感，是许多怀旧情绪的核心来源。
+          </p>
+
+          <h3>16.7 如果你要继续补充，还可以从哪些角度延展？</h3>
+          <ul>
+            <li><strong>品牌线：</strong> 分别梳理手机品牌史、播放器品牌史、家电品牌史、国产数码品牌与广告史。</li>
+            <li><strong>内容线：</strong> 做“千禧歌曲 100 首”“千禧电视剧 100 部”“千禧动漫入门清单”“千禧游戏厅与网吧地图”。</li>
+            <li><strong>视觉线：</strong> 分类整理 QQ 空间装扮、非主流 P 图元素、影楼风、婚纱店审美、早期网店 banner。</li>
+            <li><strong>生活线：</strong> 继续细分学校、家庭、夜市、商场、城中村、公交、KTV、小卖部、音像店、报刊亭的图像资料。</li>
+            <li><strong>情感线：</strong> 专门研究短信时代恋爱、QQ 时代关系、留言板时代的人际暧昧、空间访客背后的社交心理。</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2><span class="icon">📝</span>结语：我们到底在怀念什么？</h2>
+          <p>
+            也许我们怀念的，并不只是诺基亚、QQ 空间、CCD、彩铃、火星文、网吧或某一首歌。我们真正怀念的，是一种更容易被具体事物触摸到的生活：音乐有重量，照片有颗粒，网页有装饰，等待有时间，喜欢一个人要花很多心思，技术还会让人惊喜，而不是只让人疲惫。
+          </p>
+          <p>
+            千禧年代之所以美，不在于它完美；它其实很慢、很笨、很粗糙、很不统一，有时甚至很俗。但正因为不完美，它显得有人味；正因为还没被彻底标准化，它保留了大量个人表达的野生痕迹；正因为未来当时还未抵达，它才显得那么值得期待。
+          </p>
+          <p>
+            所以，如果你喜欢千禧年，不妨把这种喜欢当成一种线索：它在提醒你，你真正想要的可能不是“回到过去”，而是找回一种更有质感、更有情绪、更有具体物件、更能被自己亲手参与塑造的生活方式。
+          </p>
+        </article>
+      </main>
+    </div>
+  </section>
+
+  <footer class="footer wrap">
+    <div class="foot-card center">
+      <h3 style="margin:0 0 8px; text-shadow:0 0 10px rgba(255,79,216,.42)">QQ空间 · 葬爱风格千禧年深度报告</h3>
+      <div class="button-row" style="justify-content:center">
+        <a class="btn" href="#top">↑ 回到顶部</a>
+        <a class="btn" href="#guide">去看“回到千禧指南”</a>
+        <a class="btn" href="#encyclopedia">去看“文化符号百科”</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="backtop" href="#top">回顶部</a>
+  <aside class="qzone-player" id="qzonePlayer" aria-label="QQ空间背景音乐播放器">
+    <div class="qzone-now">
+      <div class="qzone-disc" aria-hidden="true"></div>
+      <div class="qzone-title">
+        <strong id="qzoneSongTitle">QQ空间背景音乐</strong>
+        <span id="qzoneSongMeta">点击播放，回到千禧歌单</span>
+      </div>
+      <button class="qzone-toggle" id="qzonePlay" type="button" aria-label="播放或暂停">▶</button>
+    </div>
+    <div class="qzone-controls">
+      <div class="qzone-mini-buttons">
+        <button class="qzone-icon-btn" id="qzonePrev" type="button" title="上一首" aria-label="上一首">⏮</button>
+        <button class="qzone-icon-btn" id="qzoneNext" type="button" title="下一首" aria-label="下一首">⏭</button>
+        <button class="qzone-icon-btn" id="qzoneListToggle" type="button" title="打开播放列表" aria-label="打开播放列表">☰</button>
+      </div>
+      <input class="qzone-seek" id="qzoneSeek" type="range" min="0" max="1000" value="0" aria-label="播放进度">
+      <div class="qzone-time" id="qzoneTime">00:00 / 00:00</div>
+    </div>
+    <div class="qzone-lyric" id="qzoneLyric" aria-live="polite"></div>
+    <div class="qzone-playlist" id="qzonePlaylist"></div>
+    <div class="qzone-note">把音频放进 assets/music，把同名 LRC 歌词放进 assets/lyrics。播放器会自动读取并同步。</div>
+    <audio id="qzoneAudio" preload="metadata"></audio>
+  </aside>
+  <script>
+    (() => {
+      const tracks = [
+        { title:"God is a Girl", artist:"Groove Coverage", vibe:"欧美电子 / QQ空间神曲", audio:"assets/music/god-is-a-girl.aac", lrc:"assets/lyrics/god-is-a-girl.lrc" },
+        { title:"素颜", artist:"许嵩 & 何曼婷", vibe:"华语流行 / 校园", audio:"assets/music/su-yan.aac", lrc:"assets/lyrics/su-yan.lrc" },
+        { title:"求佛", artist:"誓言", vibe:"网络神曲 / 伤感", audio:"assets/music/qiu-fo.mp3", lrc:"assets/lyrics/qiu-fo.lrc" },
+        { title:"秋天不回来", artist:"王强", vibe:"网络神曲 / 伤感", audio:"assets/music/qiu-tian-bu-hui-lai.mp3", lrc:"assets/lyrics/qiu-tian-bu-hui-lai.lrc" },
+        { title:"玫瑰花的葬礼", artist:"许嵩", vibe:"非主流 / 伤感", audio:"assets/music/mei-gui-hua-de-zang-li.aac", lrc:"assets/lyrics/mei-gui-hua-de-zang-li.lrc" },
+        { title:"童话", artist:"光良", vibe:"华语流行 / KTV", audio:"assets/music/tong-hua.aac", lrc:"assets/lyrics/tong-hua.lrc" },
+        { title:"中国话", artist:"S.H.E", vibe:"华语流行 / 动感", audio:"assets/music/zhong-guo-hua.mp3", lrc:"assets/lyrics/zhong-guo-hua.lrc" },
+        { title:"红装", artist:"徐良 & 阿悄", vibe:"网络流行 / 青春", audio:"assets/music/hong-zhuang.mp3", lrc:"assets/lyrics/hong-zhuang.lrc" },
+        { title:"Just One Last Dance", artist:"Sarah Connor & Natural", vibe:"欧美流行 / 空间BGM", audio:"assets/music/just-one-last-dance.aac", lrc:"assets/lyrics/just-one-last-dance.lrc" },
+        { title:"多余的解释", artist:"许嵩", vibe:"华语流行 / 青春", audio:"assets/music/duo-yu-de-jie-shi.mp3", lrc:"assets/lyrics/duo-yu-de-jie-shi.lrc" },
+        { title:"坏女孩", artist:"徐良 & 小凌", vibe:"网络流行 / 伤感", audio:"assets/music/huai-nv-hai.aac", lrc:"assets/lyrics/huai-nv-hai.lrc" },
+        { title:"包容", artist:"郑源", vibe:"华语流行 / 伤感", audio:"assets/music/bao-rong.mp3", lrc:"assets/lyrics/bao-rong.lrc" },
+        { title:"七里香", artist:"吉拉朵", vibe:"华语流行 / 清新", audio:"assets/music/qi-li-xiang.aac", lrc:"assets/lyrics/qi-li-xiang.lrc" },
+        { title:"香水有毒", artist:"胡杨林", vibe:"彩铃时代 / 伤感", audio:"assets/music/xiang-shui-you-du.aac", lrc:"assets/lyrics/xiang-shui-you-du.lrc" }
+      ];
+
+      const player = document.getElementById("qzonePlayer");
+      const audio = document.getElementById("qzoneAudio");
+      const playBtn = document.getElementById("qzonePlay");
+      const prevBtn = document.getElementById("qzonePrev");
+      const nextBtn = document.getElementById("qzoneNext");
+      const listBtn = document.getElementById("qzoneListToggle");
+      const seek = document.getElementById("qzoneSeek");
+      const time = document.getElementById("qzoneTime");
+      const lyricBox = document.getElementById("qzoneLyric");
+      const playlist = document.getElementById("qzonePlaylist");
+      const songTitle = document.getElementById("qzoneSongTitle");
+      const songMeta = document.getElementById("qzoneSongMeta");
+
+      let current = Number(localStorage.getItem("qzone-current-track") || 0);
+      let lyrics = [];
+      let seeking = false;
+
+      const pad = value => String(Math.floor(value || 0)).padStart(2, "0");
+      const fmt = value => `${pad(value / 60)}:${pad(value % 60)}`;
+
+      function parseLrc(text) {
+        return text.split(/\r?\n/)
+          .flatMap(line => {
+            const matches = [...line.matchAll(/\[(\d{1,2}):(\d{2})(?:\.(\d{1,3}))?\]/g)];
+            const words = line.replace(/\[[^\]]+\]/g, "").trim();
+            return matches.map(match => ({
+              time: Number(match[1]) * 60 + Number(match[2]) + Number(`0.${match[3] || 0}`),
+              text: words
+            }));
+          })
+          .filter(item => item.text)
+          .sort((a, b) => a.time - b.time);
+      }
+
+      function renderLyrics(activeIndex = -1) {
+        if (!lyrics.length) return;
+        const start = Math.max(0, activeIndex - 1);
+        const lines = lyrics.slice(start, start + 4);
+        lyricBox.innerHTML = lines.map(item => {
+          const active = lyrics.indexOf(item) === activeIndex ? " active" : "";
+          return `<p class="qzone-lyric-line${active}">${item.text}</p>`;
+        }).join("");
+      }
+
+      function showLyricNotice(text) {
+        lyrics = [];
+        lyricBox.innerHTML = `<p class="qzone-lyric-line active">${text}</p>`;
+      }
+
+      async function loadLyrics(track) {
+        try {
+          const response = await fetch(track.lrc, { cache:"no-store" });
+          if (!response.ok) throw new Error("missing lyric");
+          lyrics = parseLrc(await response.text());
+          if (lyrics.length) {
+            renderLyrics(0);
+          } else {
+            showLyricNotice("歌词文件已读取，但还没有时间轴内容");
+          }
+        } catch (error) {
+          showLyricNotice(`等待歌词文件：${track.lrc}`);
+        }
+      }
+
+      function renderPlaylist() {
+        playlist.innerHTML = tracks.map((track, index) => `
+          <button class="qzone-track${index === current ? " active" : ""}" type="button" data-index="${index}">
+            <b>${index + 1}</b>
+            <span>
+              <strong>${track.title} · ${track.artist}</strong>
+              <span>${track.vibe}</span>
+            </span>
+          </button>
+        `).join("");
+      }
+
+      function loadTrack(index, autoplay = false) {
+        current = (index + tracks.length) % tracks.length;
+        const track = tracks[current];
+        localStorage.setItem("qzone-current-track", String(current));
+        audio.src = track.audio;
+        songTitle.textContent = track.title;
+        songMeta.textContent = `${track.artist} · ${track.vibe}`;
+        seek.value = 0;
+        time.textContent = "00:00 / 00:00";
+        renderPlaylist();
+        loadLyrics(track);
+        if (autoplay) {
+          audio.play().catch(() => showLyricNotice("浏览器需要你再点一次播放"));
+        }
+      }
+
+      function syncPlayState() {
+        const playing = !audio.paused;
+        player.classList.toggle("is-playing", playing);
+        playBtn.textContent = playing ? "Ⅱ" : "▶";
+        playBtn.setAttribute("aria-label", playing ? "暂停" : "播放");
+      }
+
+      function updateTime() {
+        const duration = audio.duration || 0;
+        if (!seeking && duration) {
+          seek.value = Math.round((audio.currentTime / duration) * 1000);
+        }
+        time.textContent = `${fmt(audio.currentTime)} / ${fmt(duration)}`;
+        if (lyrics.length) {
+          const activeIndex = lyrics.findIndex((line, index) => {
+            const next = lyrics[index + 1];
+            return audio.currentTime >= line.time && (!next || audio.currentTime < next.time);
+          });
+          renderLyrics(activeIndex);
+        }
+      }
+
+      playBtn.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play().catch(() => showLyricNotice("没有找到音频文件，请先放入对应音频"));
+        } else {
+          audio.pause();
+        }
+      });
+      prevBtn.addEventListener("click", () => loadTrack(current - 1, true));
+      nextBtn.addEventListener("click", () => loadTrack(current + 1, true));
+      listBtn.addEventListener("click", () => player.classList.toggle("show-list"));
+      playlist.addEventListener("click", event => {
+        const button = event.target.closest("[data-index]");
+        if (!button) return;
+        loadTrack(Number(button.dataset.index), true);
+      });
+      seek.addEventListener("input", () => {
+        seeking = true;
+        if (audio.duration) audio.currentTime = (Number(seek.value) / 1000) * audio.duration;
+      });
+      seek.addEventListener("change", () => seeking = false);
+      audio.addEventListener("play", syncPlayState);
+      audio.addEventListener("pause", syncPlayState);
+      audio.addEventListener("timeupdate", updateTime);
+      audio.addEventListener("loadedmetadata", updateTime);
+      audio.addEventListener("ended", () => loadTrack(current + 1, true));
+      audio.addEventListener("error", () => showLyricNotice(`等待音频文件：${tracks[current].audio}`));
+
+      loadTrack(current, false);
+    })();
+  </script>
+</body>
+</html>

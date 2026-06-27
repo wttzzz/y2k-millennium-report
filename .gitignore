@@ -1,0 +1,20 @@
+# Local copyrighted media and lyric files are intentionally not published.
+assets/music/*.mp3
+assets/music/*.aac
+assets/music/*.m4a
+assets/music/*.flac
+assets/music/*.wav
+assets/music/*.ogg
+assets/music/*.lrc
+
+assets/lyrics/*.mp3
+assets/lyrics/*.aac
+assets/lyrics/*.m4a
+assets/lyrics/*.flac
+assets/lyrics/*.wav
+assets/lyrics/*.ogg
+assets/lyrics/*.lrc
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
