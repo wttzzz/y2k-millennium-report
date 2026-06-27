@@ -76,6 +76,10 @@
     @keyframes marqueeX{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
     @keyframes tilt{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(4deg)}}
+    @keyframes stickerFloat{0%,100%{translate:0 0; rotate:var(--tilt,0deg)}50%{translate:0 -12px; rotate:calc(var(--tilt,0deg) + 2deg)}}
+    @keyframes stickerPulse{0%,100%{filter:drop-shadow(0 0 8px rgba(255,88,199,.62)) drop-shadow(0 0 20px rgba(112,240,255,.28)); opacity:.88}50%{filter:drop-shadow(0 0 14px rgba(255,255,255,.88)) drop-shadow(0 0 30px rgba(255,88,199,.72)); opacity:1}}
+    @keyframes dotFall{0%{background-position:0 -120px,0 0,0 0}100%{background-position:0 120px,0 -160px,0 0}}
+    @keyframes neonFlicker{0%,100%{opacity:1}42%{opacity:.74}44%{opacity:1}68%{opacity:.86}72%{opacity:1}}
     @keyframes ledRunX{0%{background-position:0 0,0 0,0 0}100%{background-position:112px 0,-168px 0,0 0}}
     @keyframes ledRunY{0%{background-position:0 0,0 0,0 0}100%{background-position:0 112px,0 -168px,0 0}}
     @keyframes ledBreath{0%,100%{filter:saturate(1.1) brightness(.92); opacity:.86}50%{filter:saturate(1.8) brightness(1.35); opacity:1}}
@@ -163,8 +167,74 @@
     .led-lens.one{top:22%}
     .led-lens.two{top:58%; animation-delay:.74s}
     .led-lens.three{top:82%; animation-delay:1.36s; background:linear-gradient(90deg, transparent, rgba(0,255,138,.98), #fff17f, rgba(255,36,68,.88), transparent)}
+    .qzone-era-bg{
+      position:fixed;
+      inset:0;
+      z-index:1;
+      pointer-events:none;
+      background:
+        repeating-linear-gradient(90deg, transparent 0 86px, rgba(255,255,255,.10) 87px, transparent 88px),
+        radial-gradient(circle at 18% 12%, rgba(255,88,199,.28), transparent 18%),
+        radial-gradient(circle at 80% 30%, rgba(112,240,255,.17), transparent 19%),
+        radial-gradient(circle at 70% 86%, rgba(204,255,125,.10), transparent 18%);
+      opacity:.62;
+      mix-blend-mode:screen;
+    }
+    .qzone-era-bg::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,.68) 0 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,88,199,.64) 0 1px, transparent 2px),
+        linear-gradient(180deg, transparent, rgba(255,255,255,.14), transparent);
+      background-size:34px 120px,58px 160px,100% 220px;
+      animation:dotFall 7s linear infinite;
+      opacity:.58;
+    }
+    .qzone-era-bg::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(115deg, transparent 0 42%, rgba(112,240,255,.18) 43%, transparent 45% 100%),
+        linear-gradient(65deg, transparent 0 54%, rgba(255,88,199,.16) 55%, transparent 57% 100%);
+      opacity:.72;
+      filter:blur(.2px);
+    }
+    .topbar,.hero,.section,.footer,.backtop{position:relative; z-index:40}
+    .qzone-sticker-wall{
+      position:fixed;
+      inset:0;
+      z-index:36;
+      pointer-events:none;
+      overflow:hidden;
+    }
+    .sticker-img{
+      position:absolute;
+      width:var(--w);
+      max-width:42vw;
+      transform:rotate(var(--tilt,0deg));
+      transform-origin:center;
+      opacity:.94;
+      filter:drop-shadow(0 10px 16px rgba(0,0,0,.32)) drop-shadow(0 0 12px rgba(255,88,199,.42));
+      animation:stickerFloat var(--speed,5.8s) ease-in-out infinite, stickerPulse 2.4s steps(2,end) infinite;
+    }
+    .sticker-welcome{--w:clamp(190px,26vw,390px); --tilt:-2deg; --speed:5.2s; top:76px; right:max(18px, calc((100vw - 1380px) / 2 + 12px));}
+    .sticker-cai{--w:clamp(150px,18vw,280px); --tilt:-8deg; --speed:6.2s; top:154px; left:max(10px, calc((100vw - 1380px) / 2 - 42px));}
+    .sticker-counter{--w:clamp(170px,19vw,274px); --tilt:1deg; --speed:6.8s; top:318px; right:max(12px, calc((100vw - 1380px) / 2 - 32px));}
+    .sticker-ktv{--w:clamp(130px,17vw,268px); --tilt:7deg; --speed:5.4s; top:510px; left:max(6px, calc((100vw - 1380px) / 2 - 24px));}
+    .sticker-heart{--w:clamp(116px,14vw,225px); --tilt:-10deg; --speed:6.4s; top:42%; right:max(-18px, calc((100vw - 1380px) / 2 - 78px));}
+    .sticker-butterfly{--w:clamp(86px,12vw,140px); --tilt:12deg; --speed:4.8s; top:41%; left:max(8px, calc((100vw - 1380px) / 2 + 8px));}
+    .sticker-rose{--w:clamp(86px,11vw,138px); --tilt:-6deg; --speed:5.7s; bottom:252px; right:max(18px, calc((100vw - 1380px) / 2 + 16px));}
+    .sticker-musicbox{--w:clamp(190px,24vw,300px); --tilt:2deg; --speed:6.6s; bottom:96px; left:max(8px, calc((100vw - 1380px) / 2 - 18px));}
+    .sticker-wait{--w:clamp(210px,26vw,356px); --tilt:5deg; --speed:7s; bottom:160px; right:max(26px, calc((100vw - 1380px) / 2 + 118px));}
+    .sticker-nonmain{--w:clamp(142px,17vw,212px); --tilt:-5deg; --speed:5.9s; bottom:430px; left:max(18px, calc((100vw - 1380px) / 2 + 38px));}
+    .sticker-space{--w:clamp(140px,18vw,233px); --tilt:5deg; --speed:6.5s; top:640px; right:max(18px, calc((100vw - 1380px) / 2 + 34px));}
+    .sticker-guestbook{--w:clamp(120px,15vw,202px); --tilt:-4deg; --speed:5.1s; bottom:360px; right:max(10px, calc((100vw - 1380px) / 2 - 28px));}
+    .sticker-love{--w:clamp(240px,34vw,537px); --tilt:-1deg; --speed:7.4s; bottom:36px; left:50%; margin-left:calc(var(--w) / -2);}
     @media (prefers-reduced-motion:reduce){
-      .led-rail,.led-corner,.led-lens{animation:none}
+      .led-rail,.led-corner,.led-lens,.sticker-img,.qzone-era-bg::before{animation:none}
     }
     .sparkles, .sparkles:before, .sparkles:after{
       position:absolute; content:"✦"; color:#fff; font-size:18px; text-shadow:0 0 8px var(--cyan),0 0 14px var(--hot);
@@ -199,8 +269,17 @@
     .marquee-track{display:flex; width:max-content; animation:marqueeX 24s linear infinite}
     .marquee-track span{padding:10px 22px; font-weight:800; letter-spacing:.06em; text-shadow:0 0 10px rgba(255,88,199,.35)}
     .hero-grid{display:grid; grid-template-columns:1.02fr .98fr; gap:22px; align-items:stretch; margin-top:22px}
-    .panel{position:relative;background:linear-gradient(180deg, rgba(52,15,72,.90), rgba(24,8,39,.92));border:1px solid rgba(255,255,255,.14);border-radius:26px;box-shadow:var(--glow);overflow:hidden}
+    .panel{position:relative;background:linear-gradient(180deg, rgba(52,15,72,.90), rgba(24,8,39,.92));border:2px solid rgba(255,255,255,.20);border-radius:16px;box-shadow:0 0 0 3px rgba(255,88,199,.12), var(--glow), inset 0 0 26px rgba(112,240,255,.10);overflow:hidden}
     .panel::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.10), transparent 22%); pointer-events:none}
+    .panel::after,.toc::after{
+      content:"";
+      position:absolute;
+      inset:7px;
+      border:1px dashed rgba(255,255,255,.26);
+      border-radius:12px;
+      pointer-events:none;
+      box-shadow:inset 0 0 18px rgba(255,88,199,.15);
+    }
     .titlebox{padding:28px 28px 26px}
     .badge-row{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:14px}
     .badge{font-size:12px; letter-spacing:.06em; padding:7px 10px; border-radius:999px; color:#fff; background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.04)); border:1px solid rgba(255,255,255,.14)}
@@ -222,19 +301,19 @@
     .tag-card{padding:13px 12px; border-radius:16px; border:1px solid rgba(255,255,255,.12); background:linear-gradient(180deg, rgba(255,88,199,.11), rgba(112,240,255,.04)); font-size:14px; line-height:1.75}
     .section{padding:16px 0 10px}
     .section-shell{display:grid; grid-template-columns:294px 1fr; gap:22px}
-    .toc{position:sticky; top:74px; align-self:start; padding:18px; background:linear-gradient(180deg, rgba(48,14,66,.95), rgba(25,10,39,.98)); border:1px solid rgba(255,255,255,.14); border-radius:22px; box-shadow:var(--glow)}
+    .toc{position:sticky; top:74px; align-self:start; padding:18px; background:linear-gradient(180deg, rgba(48,14,66,.95), rgba(25,10,39,.98)); border:2px solid rgba(255,255,255,.18); border-radius:14px; box-shadow:0 0 0 3px rgba(112,240,255,.09), var(--glow); overflow:hidden}
     .toc h3{margin:0 0 12px; font-size:18px; color:#fff; text-shadow:0 0 10px rgba(255,88,199,.42)}
     .toc a{display:block; text-decoration:none; margin:8px 0; padding:10px 12px; border-radius:12px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); font-size:14px}
     .toc a:hover{background:linear-gradient(90deg, rgba(255,88,199,.18), rgba(112,240,255,.09))}
     .note-box{margin-top:16px; padding:12px; border-radius:12px; background:rgba(255,255,255,.05); border:1px dashed rgba(255,255,255,.18); font-size:13px; line-height:1.75; color:var(--muted)}
     .main{display:grid; gap:26px; padding-bottom:8px}
-    .card{position:relative; padding:28px 30px 26px; background:linear-gradient(180deg, var(--paper) 0%, var(--paper2) 100%); color:var(--ink); border:2px solid rgba(154,104,192,.26); border-radius:28px; box-shadow:var(--shadow); overflow:hidden; isolation:isolate}
+    .card{position:relative; padding:28px 30px 26px; background:linear-gradient(180deg, var(--paper) 0%, var(--paper2) 100%); color:var(--ink); border:3px double rgba(154,104,192,.38); border-radius:12px; box-shadow:0 0 0 5px rgba(255,255,255,.75),0 0 0 8px rgba(255,88,199,.12), var(--shadow); overflow:hidden; isolation:isolate}
     .main .card:nth-child(odd){margin-right:44px}
     .main .card:nth-child(even){margin-left:44px}
     .main .card:nth-child(3n+1){border-color:rgba(255,104,206,.28)}
     .main .card:nth-child(3n+2){border-color:rgba(112,240,255,.30)}
     .main .card:nth-child(3n+3){border-color:rgba(176,108,255,.28)}
-    .card::before{content:""; position:absolute; inset:0 0 auto 0; height:10px; background:linear-gradient(90deg, #ff84cf, #8ee7ff 48%, #ffe585 100%); z-index:0}
+    .card::before{content:""; position:absolute; inset:0 0 auto 0; height:14px; background:radial-gradient(circle, #fff 0 2px, #ff84cf 3px 5px, transparent 6px), linear-gradient(90deg, #ff84cf, #8ee7ff 48%, #ffe585 100%); background-size:22px 14px,100% 100%; z-index:0; animation:neonFlicker 2.6s steps(2,end) infinite}
     .card::after{position:absolute; top:14px; right:18px; padding:5px 10px; border-radius:999px; font-size:11px; font-weight:900; color:#fff; border:1px solid rgba(255,255,255,.22); box-shadow:0 8px 18px rgba(88,28,121,.14); z-index:1}
     .main .card:nth-child(3n+1)::after{content:"★ 空间日志 ★"; background:linear-gradient(90deg, rgba(255,88,199,.88), rgba(176,108,255,.84))}
     .main .card:nth-child(3n+2)::after{content:"♥ 今日心情 ♥"; background:linear-gradient(90deg, rgba(112,240,255,.86), rgba(127,163,255,.86))}
@@ -252,7 +331,7 @@
     .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
-    .mini{padding:15px 16px; border-radius:18px; border:1px solid rgba(130,88,164,.16); background:linear-gradient(180deg, #fff 0%, #f8f3ff 100%); box-shadow:0 8px 18px rgba(71,33,97,.06); color:var(--ink2); line-height:1.85}
+    .mini{padding:15px 16px; border-radius:10px; border:1px solid rgba(130,88,164,.20); background:linear-gradient(180deg, #fff 0%, #f8f3ff 100%); box-shadow:0 8px 18px rgba(71,33,97,.06), inset 0 0 0 1px rgba(255,88,199,.08); color:var(--ink2); line-height:1.85}
     .mini strong{color:#3b2249; display:block; margin-bottom:6px}
     .timeline{display:grid; gap:12px; margin-top:10px}
     .year{display:grid; grid-template-columns:128px 1fr; gap:14px; align-items:start; padding:14px; border-radius:18px; border:1px solid rgba(134,94,162,.16); background:linear-gradient(90deg, #fff7fc 0%, #fbfbff 100%); box-shadow:0 8px 18px rgba(71,33,97,.05)}
@@ -475,6 +554,8 @@
       .toc{position:relative; top:auto}
       .main .card:nth-child(odd), .main .card:nth-child(even){margin-left:0; margin-right:0}
       .floaters{display:none}
+      .sticker-counter,.sticker-ktv,.sticker-space,.sticker-guestbook,.sticker-love{display:none}
+      .sticker-img{opacity:.82}
     }
     @media (max-width:860px){
       .grid2,.grid3,.grid4,.metrics,.symbol-grid,.side-tags{grid-template-columns:1fr}
@@ -490,6 +571,13 @@
       .qzone-mini-buttons{justify-content:center}
       .qzone-time{text-align:center; min-width:0}
       .backtop{bottom:214px}
+      .qzone-sticker-wall{z-index:22}
+      .sticker-img{display:none}
+      .sticker-welcome,.sticker-cai,.sticker-butterfly,.sticker-rose{display:block}
+      .sticker-welcome{top:70px; right:-74px; --w:250px}
+      .sticker-cai{top:186px; left:-82px; --w:205px}
+      .sticker-butterfly{top:430px; left:-16px; --w:96px}
+      .sticker-rose{bottom:230px; right:-18px; --w:92px}
     }
 </style>
 </head>
@@ -507,6 +595,22 @@
     <i class="led-lens one"></i>
     <i class="led-lens two"></i>
     <i class="led-lens three"></i>
+  </div>
+  <div class="qzone-era-bg" aria-hidden="true"></div>
+  <div class="qzone-sticker-wall" aria-hidden="true">
+    <img class="sticker-img sticker-welcome" src="assets/stickers/welcome-home.png" alt="">
+    <img class="sticker-img sticker-cai" src="assets/stickers/cai-space.png" alt="">
+    <img class="sticker-img sticker-counter" src="assets/stickers/visitor-counter.png" alt="">
+    <img class="sticker-img sticker-ktv" src="assets/stickers/ktv-neon.png" alt="">
+    <img class="sticker-img sticker-heart" src="assets/stickers/broken-heart.png" alt="">
+    <img class="sticker-img sticker-butterfly" src="assets/stickers/purple-butterfly.png" alt="">
+    <img class="sticker-img sticker-rose" src="assets/stickers/rose.png" alt="">
+    <img class="sticker-img sticker-musicbox" src="assets/stickers/music-player.png" alt="">
+    <img class="sticker-img sticker-wait" src="assets/stickers/wait-you.png" alt="">
+    <img class="sticker-img sticker-nonmain" src="assets/stickers/nonmainstream.png" alt="">
+    <img class="sticker-img sticker-space" src="assets/stickers/qq-space-feel.png" alt="">
+    <img class="sticker-img sticker-guestbook" src="assets/stickers/guestbook.png" alt="">
+    <img class="sticker-img sticker-love" src="assets/stickers/if-love.png" alt="">
   </div>
   <div class="floaters" aria-hidden="true">
     <span class="sticker star s1">★</span>
