@@ -6,11 +6,11 @@
   <title>QQ空间·葬爱千禧纪念馆｜中国千禧年代文化深度百科</title>
   <style>
     :root{
-      --bg:#120012;
-      --bg2:#220026;
-      --bg3:#341048;
-      --panel:#310a47ee;
-      --panel2:#45115be8;
+      --bg:#050006;
+      --bg2:#0d0013;
+      --bg3:#200028;
+      --panel:#16001fee;
+      --panel2:#250030e8;
       --line:#ff8ce666;
       --hot:#ff58c7;
       --pink2:#ff9ae5;
@@ -19,14 +19,14 @@
       --violet:#b06cff;
       --yellow:#fff17f;
       --lime:#ccff7d;
-      --ink:#281d34;
-      --ink2:#54456a;
-      --paper:#fff9fd;
-      --paper2:#fffefe;
-      --paper3:#f9f4ff;
+      --ink:#fff8ff;
+      --ink2:#e7c9f4;
+      --paper:#120018;
+      --paper2:#1a0324;
+      --paper3:#260035;
       --muted:#f5e6f7d8;
-      --shadow:0 14px 34px rgba(31,7,42,.18),0 24px 80px rgba(22,2,33,.18);
-      --glow:0 0 0 1px rgba(255,255,255,.14),0 12px 28px rgba(0,0,0,.28),0 0 42px rgba(255,88,199,.20);
+      --shadow:0 18px 40px rgba(0,0,0,.48),0 0 42px rgba(255,30,188,.14),0 0 70px rgba(37,0,58,.72);
+      --glow:0 0 0 1px rgba(255,255,255,.14),0 12px 28px rgba(0,0,0,.42),0 0 42px rgba(255,88,199,.30);
       --radius:22px;
       --font:"Microsoft YaHei","PingFang SC",Arial,sans-serif;
       --mono:"Courier New",monospace;
@@ -38,11 +38,11 @@
       color:#fff8ff;
       font-family:var(--font);
       background:
-        radial-gradient(circle at 9% 10%, rgba(255,88,199,.27), transparent 22%),
-        radial-gradient(circle at 88% 10%, rgba(112,240,255,.18), transparent 20%),
-        radial-gradient(circle at 50% 36%, rgba(176,108,255,.16), transparent 28%),
+        radial-gradient(circle at 9% 10%, rgba(255,28,183,.22), transparent 22%),
+        radial-gradient(circle at 88% 10%, rgba(63,220,255,.13), transparent 20%),
+        radial-gradient(circle at 50% 36%, rgba(120,44,180,.18), transparent 28%),
         radial-gradient(circle at 85% 85%, rgba(255,241,127,.09), transparent 20%),
-        linear-gradient(180deg, #150013 0%, #100013 30%, #1b0222 100%);
+        linear-gradient(180deg, #050006 0%, #0a0010 36%, #120018 100%);
       overflow-x:hidden;
     }
     body::before{
@@ -89,7 +89,7 @@
     .millennium-lights{
       position:fixed;
       inset:0;
-      z-index:1180;
+      z-index:5000;
       pointer-events:none;
       opacity:0;
       transition:opacity .28s ease;
@@ -114,41 +114,43 @@
       opacity:.72;
     }
     .led-top,.led-bottom{
-      left:10px;
-      right:10px;
-      height:18px;
+      left:6px;
+      right:6px;
+      height:24px;
       background-image:
-        radial-gradient(circle, #ffffff 0 4px, #70f0ff 5px 8px, transparent 9px),
-        radial-gradient(circle, #fff17f 0 3px, #ff325e 4px 8px, transparent 9px),
-        linear-gradient(90deg, transparent, rgba(112,240,255,.45), transparent);
-      background-size:56px 18px,84px 18px,100% 100%;
-      box-shadow:0 0 16px #70f0ff, 0 0 34px rgba(112,240,255,.74), inset 0 0 18px rgba(255,255,255,.46);
-      animation:ledRunX .78s linear infinite, ledBreath 1.06s steps(2,end) infinite;
+        radial-gradient(circle, #ffffff 0 5px, #31f9ff 6px 10px, transparent 11px),
+        radial-gradient(circle, #fff17f 0 4px, #ff1e43 5px 10px, transparent 11px),
+        radial-gradient(circle, #ffffff 0 4px, #00ff86 5px 10px, transparent 11px),
+        linear-gradient(90deg, transparent, rgba(112,240,255,.66), transparent);
+      background-size:46px 24px,69px 24px,92px 24px,100% 100%;
+      box-shadow:0 0 22px #70f0ff, 0 0 46px rgba(112,240,255,.94), 0 0 70px rgba(255,32,70,.62), inset 0 0 22px rgba(255,255,255,.58);
+      animation:ledRunX .46s linear infinite, ledBreath .78s steps(2,end) infinite;
     }
-    .led-top{top:8px}
-    .led-bottom{bottom:8px; animation-direction:reverse, normal}
+    .led-top{top:5px}
+    .led-bottom{bottom:5px; animation-direction:reverse, normal}
     .led-left,.led-right{
-      top:10px;
-      bottom:10px;
-      width:18px;
+      top:6px;
+      bottom:6px;
+      width:24px;
       background-image:
-        radial-gradient(circle, #ffffff 0 4px, #00ff8a 5px 8px, transparent 9px),
-        radial-gradient(circle, #fff17f 0 3px, #ff2b49 4px 8px, transparent 9px),
-        linear-gradient(180deg, transparent, rgba(255,88,199,.34), transparent);
-      background-size:18px 56px,18px 84px,100% 100%;
-      box-shadow:0 0 16px #00ff8a, 0 0 34px rgba(0,255,138,.66), inset 0 0 18px rgba(255,255,255,.46);
-      animation:ledRunY .74s linear infinite, ledBreath 1.18s steps(2,end) infinite;
+        radial-gradient(circle, #ffffff 0 5px, #00ff8a 6px 10px, transparent 11px),
+        radial-gradient(circle, #fff17f 0 4px, #ff1f3f 5px 10px, transparent 11px),
+        radial-gradient(circle, #ffffff 0 4px, #33d2ff 5px 10px, transparent 11px),
+        linear-gradient(180deg, transparent, rgba(255,88,199,.54), transparent);
+      background-size:24px 46px,24px 69px,24px 92px,100% 100%;
+      box-shadow:0 0 22px #00ff8a, 0 0 48px rgba(0,255,138,.88), 0 0 70px rgba(255,34,76,.58), inset 0 0 22px rgba(255,255,255,.58);
+      animation:ledRunY .42s linear infinite, ledBreath .86s steps(2,end) infinite;
     }
-    .led-left{left:8px; animation-direction:reverse, normal}
-    .led-right{right:8px}
+    .led-left{left:5px; animation-direction:reverse, normal}
+    .led-right{right:5px}
     .led-corner{
       position:absolute;
-      width:34px;
-      height:34px;
+      width:44px;
+      height:44px;
       border-radius:50%;
       background:radial-gradient(circle, #fff 0 7px, #70f0ff 8px 13px, #ff58c7 14px 19px, transparent 20px);
-      box-shadow:0 0 18px #fff,0 0 38px #70f0ff,0 0 58px rgba(255,88,199,.74);
-      animation:cornerBlink .92s steps(2,end) infinite;
+      box-shadow:0 0 22px #fff,0 0 46px #70f0ff,0 0 78px rgba(255,88,199,.88);
+      animation:cornerBlink .58s steps(2,end) infinite;
     }
     .led-corner:nth-of-type(5){top:0;left:0}
     .led-corner:nth-of-type(6){top:0;right:0; animation-delay:.22s}
@@ -158,9 +160,9 @@
       position:absolute;
       left:0;
       width:52vw;
-      height:3px;
+      height:5px;
       background:linear-gradient(90deg, transparent, rgba(112,240,255,.98), #fff, rgba(44,116,255,.95), transparent);
-      box-shadow:0 0 16px rgba(112,240,255,.92), 0 0 40px rgba(44,116,255,.72);
+      box-shadow:0 0 18px rgba(255,255,255,.92),0 0 28px rgba(112,240,255,1), 0 0 58px rgba(44,116,255,.88);
       opacity:0;
       animation:lensSweep 2.45s linear infinite;
     }
@@ -173,11 +175,11 @@
       z-index:1;
       pointer-events:none;
       background:
-        repeating-linear-gradient(90deg, transparent 0 86px, rgba(255,255,255,.10) 87px, transparent 88px),
-        radial-gradient(circle at 18% 12%, rgba(255,88,199,.28), transparent 18%),
-        radial-gradient(circle at 80% 30%, rgba(112,240,255,.17), transparent 19%),
-        radial-gradient(circle at 70% 86%, rgba(204,255,125,.10), transparent 18%);
-      opacity:.62;
+        repeating-linear-gradient(90deg, transparent 0 86px, rgba(255,255,255,.08) 87px, transparent 88px),
+        radial-gradient(circle at 18% 12%, rgba(255,28,183,.24), transparent 18%),
+        radial-gradient(circle at 80% 30%, rgba(73,182,255,.12), transparent 19%),
+        radial-gradient(circle at 70% 86%, rgba(204,255,125,.08), transparent 18%);
+      opacity:.72;
       mix-blend-mode:screen;
     }
     .qzone-era-bg::before{
@@ -206,33 +208,33 @@
     .qzone-sticker-wall{
       position:fixed;
       inset:0;
-      z-index:36;
+      z-index:72;
       pointer-events:none;
       overflow:hidden;
     }
     .sticker-img{
       position:absolute;
       width:var(--w);
-      max-width:42vw;
+      max-width:34vw;
       transform:rotate(var(--tilt,0deg));
       transform-origin:center;
       opacity:.94;
       filter:drop-shadow(0 10px 16px rgba(0,0,0,.32)) drop-shadow(0 0 12px rgba(255,88,199,.42));
       animation:stickerFloat var(--speed,5.8s) ease-in-out infinite, stickerPulse 2.4s steps(2,end) infinite;
     }
-    .sticker-welcome{--w:clamp(190px,26vw,390px); --tilt:-2deg; --speed:5.2s; top:76px; right:max(18px, calc((100vw - 1380px) / 2 + 12px));}
-    .sticker-cai{--w:clamp(150px,18vw,280px); --tilt:-8deg; --speed:6.2s; top:154px; left:max(10px, calc((100vw - 1380px) / 2 - 42px));}
-    .sticker-counter{--w:clamp(170px,19vw,274px); --tilt:1deg; --speed:6.8s; top:318px; right:max(12px, calc((100vw - 1380px) / 2 - 32px));}
-    .sticker-ktv{--w:clamp(130px,17vw,268px); --tilt:7deg; --speed:5.4s; top:510px; left:max(6px, calc((100vw - 1380px) / 2 - 24px));}
-    .sticker-heart{--w:clamp(116px,14vw,225px); --tilt:-10deg; --speed:6.4s; top:42%; right:max(-18px, calc((100vw - 1380px) / 2 - 78px));}
-    .sticker-butterfly{--w:clamp(86px,12vw,140px); --tilt:12deg; --speed:4.8s; top:41%; left:max(8px, calc((100vw - 1380px) / 2 + 8px));}
-    .sticker-rose{--w:clamp(86px,11vw,138px); --tilt:-6deg; --speed:5.7s; bottom:252px; right:max(18px, calc((100vw - 1380px) / 2 + 16px));}
-    .sticker-musicbox{--w:clamp(190px,24vw,300px); --tilt:2deg; --speed:6.6s; bottom:96px; left:max(8px, calc((100vw - 1380px) / 2 - 18px));}
-    .sticker-wait{--w:clamp(210px,26vw,356px); --tilt:5deg; --speed:7s; bottom:160px; right:max(26px, calc((100vw - 1380px) / 2 + 118px));}
-    .sticker-nonmain{--w:clamp(142px,17vw,212px); --tilt:-5deg; --speed:5.9s; bottom:430px; left:max(18px, calc((100vw - 1380px) / 2 + 38px));}
-    .sticker-space{--w:clamp(140px,18vw,233px); --tilt:5deg; --speed:6.5s; top:640px; right:max(18px, calc((100vw - 1380px) / 2 + 34px));}
-    .sticker-guestbook{--w:clamp(120px,15vw,202px); --tilt:-4deg; --speed:5.1s; bottom:360px; right:max(10px, calc((100vw - 1380px) / 2 - 28px));}
-    .sticker-love{--w:clamp(240px,34vw,537px); --tilt:-1deg; --speed:7.4s; bottom:36px; left:50%; margin-left:calc(var(--w) / -2);}
+    .sticker-welcome{--w:clamp(180px,21vw,330px); --tilt:-2deg; --speed:5.2s; top:88px; right:-150px;}
+    .sticker-cai{--w:clamp(145px,15vw,240px); --tilt:-8deg; --speed:6.2s; top:150px; left:-152px;}
+    .sticker-counter{--w:clamp(160px,15vw,230px); --tilt:1deg; --speed:6.8s; top:330px; right:-142px;}
+    .sticker-ktv{--w:clamp(124px,14vw,224px); --tilt:7deg; --speed:5.4s; top:500px; left:-150px;}
+    .sticker-heart{--w:clamp(110px,12vw,190px); --tilt:-10deg; --speed:6.4s; top:42%; right:-118px;}
+    .sticker-butterfly{--w:clamp(82px,10vw,122px); --tilt:12deg; --speed:4.8s; top:41%; left:-72px;}
+    .sticker-rose{--w:clamp(82px,9vw,120px); --tilt:-6deg; --speed:5.7s; bottom:252px; right:-72px;}
+    .sticker-musicbox{--w:clamp(168px,19vw,254px); --tilt:2deg; --speed:6.6s; bottom:86px; left:-160px;}
+    .sticker-wait{--w:clamp(184px,20vw,300px); --tilt:5deg; --speed:7s; bottom:152px; right:-156px;}
+    .sticker-nonmain{--w:clamp(126px,13vw,178px); --tilt:-5deg; --speed:5.9s; bottom:430px; left:-118px;}
+    .sticker-space{--w:clamp(124px,14vw,196px); --tilt:5deg; --speed:6.5s; top:650px; right:-118px;}
+    .sticker-guestbook{--w:clamp(110px,12vw,176px); --tilt:-4deg; --speed:5.1s; bottom:360px; right:-112px;}
+    .sticker-love{--w:clamp(200px,24vw,360px); --tilt:-1deg; --speed:7.4s; bottom:24px; right:-230px;}
     @media (prefers-reduced-motion:reduce){
       .led-rail,.led-corner,.led-lens,.sticker-img,.qzone-era-bg::before{animation:none}
     }
@@ -252,7 +254,7 @@
     .topbar{
       position:sticky; top:0; z-index:80;
       backdrop-filter:blur(12px);
-      background:linear-gradient(90deg, rgba(28,6,36,.92), rgba(63,18,78,.88));
+      background:linear-gradient(90deg, rgba(6,0,10,.96), rgba(36,0,48,.92));
       border-bottom:1px solid rgba(255,255,255,.12);
       box-shadow:0 10px 24px rgba(0,0,0,.22);
     }
@@ -265,9 +267,77 @@
     .nav a{white-space:nowrap; text-decoration:none; font-size:13px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.16); background:linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.04)); box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
     .nav a:hover{background:linear-gradient(180deg, rgba(255,88,199,.22), rgba(112,240,255,.10)); box-shadow:0 0 18px rgba(255,88,199,.20)}
     .hero{position:relative; padding:24px 0 36px}
-    .marquee-shell{margin-top:18px;overflow:hidden;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:linear-gradient(90deg, rgba(255,88,199,.22), rgba(112,240,255,.08), rgba(255,88,199,.22)); box-shadow:var(--glow)}
+    .marquee-shell{margin-top:18px;overflow:hidden;border-radius:999px;border:1px solid rgba(255,255,255,.26);background:linear-gradient(90deg, rgba(255,28,183,.34), rgba(112,240,255,.12), rgba(255,28,183,.34)); box-shadow:0 0 18px rgba(255,88,199,.40),0 0 34px rgba(112,240,255,.18),var(--glow)}
     .marquee-track{display:flex; width:max-content; animation:marqueeX 24s linear infinite}
     .marquee-track span{padding:10px 22px; font-weight:800; letter-spacing:.06em; text-shadow:0 0 10px rgba(255,88,199,.35)}
+    .qzone-deco-board{
+      position:relative;
+      margin-top:18px;
+      padding:16px;
+      border:2px solid rgba(255,255,255,.24);
+      border-radius:14px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255,88,199,.24), transparent 25%),
+        radial-gradient(circle at 82% 20%, rgba(112,240,255,.18), transparent 24%),
+        linear-gradient(180deg, rgba(24,0,34,.94), rgba(7,0,12,.98));
+      box-shadow:0 0 0 4px rgba(255,88,199,.10),0 0 34px rgba(255,88,199,.28),0 0 55px rgba(112,240,255,.12);
+      overflow:hidden;
+    }
+    .qzone-deco-board::before{
+      content:"";
+      position:absolute;
+      inset:6px;
+      border:1px dashed rgba(255,255,255,.26);
+      border-radius:10px;
+      pointer-events:none;
+      box-shadow:inset 0 0 22px rgba(255,88,199,.18);
+    }
+    .qzone-deco-board::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle, rgba(255,255,255,.75) 0 1px, transparent 2px),
+        repeating-linear-gradient(90deg, transparent 0 18px, rgba(255,255,255,.05) 19px, transparent 20px);
+      background-size:36px 36px,100% 100%;
+      opacity:.42;
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+    .deco-board-inner{position:relative; z-index:1; display:grid; grid-template-columns:1.1fr .9fr 1fr; gap:14px; align-items:stretch}
+    .deco-window{
+      min-height:156px;
+      border:1px solid rgba(255,255,255,.20);
+      border-radius:10px;
+      background:linear-gradient(180deg, rgba(55,0,74,.72), rgba(10,0,16,.76));
+      box-shadow:inset 0 0 28px rgba(112,240,255,.08),0 8px 18px rgba(0,0,0,.26);
+      overflow:hidden;
+    }
+    .deco-window-bar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:8px 10px;
+      color:#fff;
+      font-size:12px;
+      font-weight:900;
+      background:linear-gradient(90deg, rgba(255,88,199,.46), rgba(112,240,255,.22));
+      text-shadow:0 0 10px rgba(255,255,255,.42);
+    }
+    .deco-window-body{padding:12px; display:grid; gap:10px; color:#ffe9fb; line-height:1.7}
+    .deco-sticker-stage{position:relative; min-height:168px}
+    .deco-sticker-stage img{position:absolute; max-width:100%; filter:drop-shadow(0 10px 16px rgba(0,0,0,.35)) drop-shadow(0 0 12px rgba(255,88,199,.38))}
+    .deco-sticker-stage .deco-welcome{width:54%; left:3%; top:2%; transform:rotate(-4deg)}
+    .deco-sticker-stage .deco-cai{width:38%; right:2%; top:10%; transform:rotate(7deg)}
+    .deco-sticker-stage .deco-guest{width:34%; left:13%; bottom:0; transform:rotate(3deg)}
+    .deco-sticker-stage .deco-butterfly{width:22%; right:18%; bottom:8%; transform:rotate(-10deg)}
+    .deco-music-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px; align-items:center}
+    .deco-music-grid img{width:100%; filter:drop-shadow(0 0 12px rgba(255,88,199,.34))}
+    .deco-counter-img{width:min(260px, 100%); margin:auto; display:block; filter:drop-shadow(0 0 12px rgba(112,240,255,.34))}
+    .deco-chat-line{display:flex; justify-content:space-between; gap:10px; padding:7px 9px; border-radius:8px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); font-size:13px}
+    .deco-chat-line b{color:#fff17f}
+    .deco-actions{display:flex; flex-wrap:wrap; gap:8px}
+    .deco-actions span{padding:7px 10px; border-radius:999px; background:linear-gradient(90deg, rgba(255,88,199,.28), rgba(112,240,255,.14)); border:1px solid rgba(255,255,255,.15); font-size:12px; font-weight:900}
     .hero-grid{display:grid; grid-template-columns:1.02fr .98fr; gap:22px; align-items:stretch; margin-top:22px}
     .panel{position:relative;background:linear-gradient(180deg, rgba(52,15,72,.90), rgba(24,8,39,.92));border:2px solid rgba(255,255,255,.20);border-radius:16px;box-shadow:0 0 0 3px rgba(255,88,199,.12), var(--glow), inset 0 0 26px rgba(112,240,255,.10);overflow:hidden}
     .panel::before{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,.10), transparent 22%); pointer-events:none}
@@ -307,7 +377,7 @@
     .toc a:hover{background:linear-gradient(90deg, rgba(255,88,199,.18), rgba(112,240,255,.09))}
     .note-box{margin-top:16px; padding:12px; border-radius:12px; background:rgba(255,255,255,.05); border:1px dashed rgba(255,255,255,.18); font-size:13px; line-height:1.75; color:var(--muted)}
     .main{display:grid; gap:26px; padding-bottom:8px}
-    .card{position:relative; padding:28px 30px 26px; background:linear-gradient(180deg, var(--paper) 0%, var(--paper2) 100%); color:var(--ink); border:3px double rgba(154,104,192,.38); border-radius:12px; box-shadow:0 0 0 5px rgba(255,255,255,.75),0 0 0 8px rgba(255,88,199,.12), var(--shadow); overflow:hidden; isolation:isolate}
+    .card{position:relative; padding:28px 30px 26px; background:radial-gradient(circle at 0% 0%, rgba(255,88,199,.14), transparent 28%), linear-gradient(180deg, var(--paper) 0%, var(--paper2) 100%); color:var(--ink); border:3px double rgba(255,143,233,.42); border-radius:12px; box-shadow:0 0 0 2px rgba(255,255,255,.18),0 0 0 6px rgba(255,88,199,.10), var(--shadow); overflow:hidden; isolation:isolate}
     .main .card:nth-child(odd){margin-right:44px}
     .main .card:nth-child(even){margin-left:44px}
     .main .card:nth-child(3n+1){border-color:rgba(255,104,206,.28)}
@@ -319,38 +389,38 @@
     .main .card:nth-child(3n+2)::after{content:"♥ 今日心情 ♥"; background:linear-gradient(90deg, rgba(112,240,255,.86), rgba(127,163,255,.86))}
     .main .card:nth-child(3n+3)::after{content:"✦ 葬爱收藏 ✦"; background:linear-gradient(90deg, rgba(255,164,220,.86), rgba(255,216,110,.80))}
     .card > *{position:relative; z-index:1}
-    .card h2{margin:0 0 16px; font-size:31px; line-height:1.22; letter-spacing:.01em; color:#3c204d; display:flex; align-items:center; gap:10px; padding-bottom:12px; border-bottom:1px solid rgba(143,104,173,.18)}
+    .card h2{margin:0 0 16px; font-size:31px; line-height:1.22; letter-spacing:.01em; color:#fff8ff; display:flex; align-items:center; gap:10px; padding-bottom:12px; border-bottom:1px solid rgba(255,143,233,.26); text-shadow:0 0 10px rgba(255,88,199,.44),0 0 18px rgba(112,240,255,.18)}
     .card h2 .icon{font-size:26px; animation:floaty 3.6s infinite ease-in-out}
-    .card h3{margin:22px 0 10px; font-size:22px; color:#5d2f79}
-    .card h4{margin:16px 0 8px; font-size:17px; color:#35697d}
+    .card h3{margin:22px 0 10px; font-size:22px; color:#ffb8ef; text-shadow:0 0 10px rgba(255,88,199,.22)}
+    .card h4{margin:16px 0 8px; font-size:17px; color:#a7f7ff}
     .card p{margin:11px 0; line-height:2; color:var(--ink2); max-width:90ch}
     .card ul,.card ol{margin:10px 0 10px 22px; padding:0; max-width:92ch}
     .card li{margin:8px 0; line-height:1.95; color:var(--ink2)}
-    .card strong{color:#2d1b38}
+    .card strong{color:#fff17f}
     .grid2,.grid3,.grid4{display:grid; gap:14px; margin-top:10px}
     .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
     .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
     .grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
-    .mini{padding:15px 16px; border-radius:10px; border:1px solid rgba(130,88,164,.20); background:linear-gradient(180deg, #fff 0%, #f8f3ff 100%); box-shadow:0 8px 18px rgba(71,33,97,.06), inset 0 0 0 1px rgba(255,88,199,.08); color:var(--ink2); line-height:1.85}
-    .mini strong{color:#3b2249; display:block; margin-bottom:6px}
+    .mini{padding:15px 16px; border-radius:10px; border:1px solid rgba(255,143,233,.20); background:linear-gradient(180deg, rgba(47,0,62,.92) 0%, rgba(17,0,24,.94) 100%); box-shadow:0 8px 18px rgba(0,0,0,.20), inset 0 0 0 1px rgba(255,88,199,.08); color:var(--ink2); line-height:1.85}
+    .mini strong{color:#fff8ff; display:block; margin-bottom:6px}
     .timeline{display:grid; gap:12px; margin-top:10px}
-    .year{display:grid; grid-template-columns:128px 1fr; gap:14px; align-items:start; padding:14px; border-radius:18px; border:1px solid rgba(134,94,162,.16); background:linear-gradient(90deg, #fff7fc 0%, #fbfbff 100%); box-shadow:0 8px 18px rgba(71,33,97,.05)}
-    .year b{display:inline-block; padding:9px 12px; border-radius:999px; background:linear-gradient(90deg, rgba(255,88,199,.18), rgba(112,240,255,.14)); color:#442358; text-align:center}
-    table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:18px; margin-top:12px; box-shadow:0 8px 18px rgba(71,33,97,.05)}
-    th,td{padding:13px 14px; border-right:1px solid rgba(140,103,169,.12); border-bottom:1px solid rgba(140,103,169,.12); vertical-align:top; line-height:1.82}
+    .year{display:grid; grid-template-columns:128px 1fr; gap:14px; align-items:start; padding:14px; border-radius:14px; border:1px solid rgba(255,143,233,.20); background:linear-gradient(90deg, rgba(38,0,54,.94) 0%, rgba(17,0,26,.96) 100%); box-shadow:0 8px 18px rgba(0,0,0,.22)}
+    .year b{display:inline-block; padding:9px 12px; border-radius:999px; background:linear-gradient(90deg, rgba(255,88,199,.34), rgba(112,240,255,.18)); color:#fff8ff; text-align:center; box-shadow:0 0 14px rgba(255,88,199,.22)}
+    table{width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:14px; margin-top:12px; box-shadow:0 8px 18px rgba(0,0,0,.24),0 0 0 1px rgba(255,143,233,.16)}
+    th,td{padding:13px 14px; border-right:1px solid rgba(255,143,233,.14); border-bottom:1px solid rgba(255,143,233,.14); vertical-align:top; line-height:1.82}
     th:last-child,td:last-child{border-right:none}
     tr:last-child td{border-bottom:none}
-    th{background:linear-gradient(180deg, #f7d6eb 0%, #eaf5ff 100%); text-align:left; color:#3a2348}
-    td{background:#fff; color:var(--ink2)}
+    th{background:linear-gradient(180deg, rgba(255,88,199,.28) 0%, rgba(112,240,255,.14) 100%); text-align:left; color:#fff8ff}
+    td{background:rgba(18,0,28,.92); color:var(--ink2)}
     .tag-cloud{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
-    .tag{padding:8px 12px; border-radius:999px; font-size:13px; line-height:1.3; background:linear-gradient(180deg, #fff 0%, #f6f1ff 100%); border:1px solid rgba(130,88,164,.16); color:#513d63}
+    .tag{padding:8px 12px; border-radius:999px; font-size:13px; line-height:1.3; background:linear-gradient(180deg, rgba(48,0,66,.92) 0%, rgba(18,0,28,.96) 100%); border:1px solid rgba(255,143,233,.18); color:#ffd7f5; box-shadow:0 0 14px rgba(255,88,199,.10)}
     .symbol-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:8px}
-    .symbol-group{padding:16px; border-radius:18px; border:1px solid rgba(130,88,164,.16); background:linear-gradient(180deg, #fff 0%, #f9f5ff 100%); box-shadow:0 8px 18px rgba(71,33,97,.05)}
-    .symbol-group h4{margin:0 0 8px; color:#412953}
+    .symbol-group{padding:16px; border-radius:12px; border:1px solid rgba(255,143,233,.20); background:linear-gradient(180deg, rgba(48,0,66,.92) 0%, rgba(18,0,28,.96) 100%); box-shadow:0 8px 18px rgba(0,0,0,.22)}
+    .symbol-group h4{margin:0 0 8px; color:#fff8ff}
     .symbol-group ul{margin:6px 0 0 18px}
-    details{border:1px solid rgba(130,88,164,.16); border-radius:18px; padding:14px 15px; background:linear-gradient(180deg, #fff 0%, #faf7ff 100%); box-shadow:0 8px 18px rgba(71,33,97,.04)}
+    details{border:1px solid rgba(255,143,233,.20); border-radius:12px; padding:14px 15px; background:linear-gradient(180deg, rgba(48,0,66,.92) 0%, rgba(18,0,28,.96) 100%); box-shadow:0 8px 18px rgba(0,0,0,.20)}
     details + details{margin-top:12px}
-    summary{cursor:pointer; font-weight:900; color:#45295a; list-style:none}
+    summary{cursor:pointer; font-weight:900; color:#fff8ff; list-style:none}
     summary::-webkit-details-marker{display:none}
     .footer{padding:28px 0 50px; color:var(--muted)}
     .foot-card{padding:20px 22px; border-radius:24px; background:linear-gradient(180deg, rgba(44,17,61,.92), rgba(22,8,35,.96)); border:1px solid rgba(255,255,255,.12); box-shadow:var(--glow)}
@@ -365,7 +435,7 @@
       left:16px;
       bottom:16px;
       z-index:1200;
-      width:min(420px, calc(100vw - 32px));
+      width:min(390px, calc(100vw - 32px));
       color:#fff;
       border:1px solid rgba(255,255,255,.22);
       border-radius:18px;
@@ -502,7 +572,7 @@
     .qzone-playlist{
       position:relative;
       display:none;
-      max-height:330px;
+      max-height:210px;
       overflow:auto;
       border-top:1px solid rgba(255,255,255,.14);
       background:rgba(10,0,20,.50);
@@ -551,6 +621,8 @@
     }
     @media (max-width:1120px){
       .hero-grid,.section-shell{grid-template-columns:1fr}
+      .deco-board-inner{grid-template-columns:1fr 1fr}
+      .deco-window:last-child{grid-column:1/-1}
       .toc{position:relative; top:auto}
       .main .card:nth-child(odd), .main .card:nth-child(even){margin-left:0; margin-right:0}
       .floaters{display:none}
@@ -559,6 +631,8 @@
     }
     @media (max-width:860px){
       .grid2,.grid3,.grid4,.metrics,.symbol-grid,.side-tags{grid-template-columns:1fr}
+      .deco-board-inner,.deco-music-grid{grid-template-columns:1fr}
+      .deco-sticker-stage{min-height:138px}
       .year{grid-template-columns:1fr}
       h1{font-size:56px}
       .titlebox,.quote-card,.card{padding:20px}
@@ -646,6 +720,40 @@
         <span>★ 欢迎来到千禧年 ★ QQ空间 ★ 火星文 ★ 葬爱家族 ★ 跑马灯 ★ 彩铃时代 ★ 诺基亚 ★ 翻盖手机 ★ CCD ★ 网吧 ★ 千千静听 ★</span>
       </div>
     </div>
+
+    <section class="qzone-deco-board" aria-label="QQ空间千禧年装扮橱窗">
+      <div class="deco-board-inner">
+        <div class="deco-window deco-sticker-stage">
+          <img class="deco-welcome" src="assets/stickers/welcome-home.png" alt="">
+          <img class="deco-cai" src="assets/stickers/cai-space.png" alt="">
+          <img class="deco-guest" src="assets/stickers/guestbook.png" alt="">
+          <img class="deco-butterfly" src="assets/stickers/purple-butterfly.png" alt="">
+        </div>
+        <div class="deco-window">
+          <div class="deco-window-bar"><span>装扮模块</span><span class="blink">在线中</span></div>
+          <div class="deco-window-body">
+            <img class="deco-counter-img" src="assets/stickers/visitor-counter.png" alt="">
+            <div class="deco-actions">
+              <span>留言板</span>
+              <span>日志</span>
+              <span>音乐盒</span>
+              <span>踩空间</span>
+            </div>
+          </div>
+        </div>
+        <div class="deco-window">
+          <div class="deco-window-bar"><span>背景音乐播放器</span><span>56K / KTV / MP3</span></div>
+          <div class="deco-window-body">
+            <div class="deco-music-grid">
+              <img src="assets/stickers/music-player.png" alt="">
+              <img src="assets/stickers/ktv-neon.png" alt="">
+            </div>
+            <div class="deco-chat-line"><b>主人</b><span>今天也要把主页装到最闪</span></div>
+            <div class="deco-chat-line"><b>访客</b><span>踩一下，留个言</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <div class="hero-grid">
       <section class="panel titlebox">
@@ -1555,6 +1663,14 @@
       prevBtn.addEventListener("click", () => loadTrack(current - 1, true));
       nextBtn.addEventListener("click", () => loadTrack(current + 1, true));
       listBtn.addEventListener("click", () => player.classList.toggle("show-list"));
+      document.addEventListener("click", event => {
+        if (!player.classList.contains("show-list")) return;
+        const path = event.composedPath ? event.composedPath() : [];
+        if (!path.includes(player) && !player.contains(event.target)) player.classList.remove("show-list");
+      });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") player.classList.remove("show-list");
+      });
       playlist.addEventListener("click", event => {
         const button = event.target.closest("[data-index]");
         if (!button) return;
